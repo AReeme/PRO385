@@ -24,7 +24,6 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        isVR = true;
         if (!isVR)
         {
 
