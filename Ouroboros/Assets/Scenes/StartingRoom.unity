@@ -1439,11 +1439,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378498405}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &388736987 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1680501587, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
-  m_PrefabInstance: {fileID: 441087506}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &441087506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1500,6 +1495,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.069
       objectReference: {fileID: 0}
+    - target: {fileID: 1178791450436251564, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
@@ -1518,7 +1517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17
+      value: -0.79
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6971,8 +6970,13 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 655302041}
-  m_Father: {fileID: 388736987}
+  m_Father: {fileID: 2120228161}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2120228161 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1680501587, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
+  m_PrefabInstance: {fileID: 441087506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
