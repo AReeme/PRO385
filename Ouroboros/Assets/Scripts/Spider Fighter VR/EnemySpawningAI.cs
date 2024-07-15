@@ -12,19 +12,12 @@ public class EnemySpawningAI : MonoBehaviour
     }
 
     // Prefabs
-    [SerializeField] GameObject player;
     [SerializeField] GameObject basicSpider;
     [SerializeField] GameObject longLegSpider;
     [SerializeField] GameObject blackSpider;
     [SerializeField] GameObject[] spawnPoints;
 
-    // Stats
-    enemyTypes type;
-    float speed;
-    float health;
-    float maxHealth;
-    float damage;
-    float bulletDamage;
+    public enemyTypes type;
 
     // Miscellaneous
     int randomNumber;
@@ -71,26 +64,6 @@ public class EnemySpawningAI : MonoBehaviour
                 break;
         }
 
-        // Sets Stats
-        switch (type)
-        {
-            case enemyTypes.Basic:
-                maxHealth = 30;
-                speed = 5;
-                damage = 10;
-                break;
-            case enemyTypes.Long_Leg:
-                maxHealth = 15;
-                speed = 10;
-                damage = 7.5f;
-                break;
-            case enemyTypes.Black_Widow:
-                maxHealth = 25;
-                speed = 2.5f;
-                damage = 25;
-                bulletDamage = 5;
-                break;
-        }
 
         // Instantiates Spiders at Randomized Spawn Points
         for (int i = 0; i < spawnNumber; i++)
@@ -110,8 +83,6 @@ public class EnemySpawningAI : MonoBehaviour
                     break;
             }
         }
-
-        health = maxHealth;
     }
 
     IEnumerator SpawnCoroutine()
