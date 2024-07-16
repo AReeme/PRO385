@@ -5,16 +5,26 @@ public class GameSetupBase : MonoBehaviour
 {
     public GameManagerVRBase gameManager;
 
+    public bool Debug;
+
     void Awake()
     {
-        // Choose the appropriate game manager
-        if (XRSettings.isDeviceActive)
+        if (!Debug)
         {
-            gameManager = gameObject.AddComponent<GameManagerVR>();
+
+            // Choose the appropriate game manager
+            if (XRSettings.isDeviceActive)
+            {
+                gameManager = gameObject.AddComponent<GameManagerVR>();
+            }
+            else
+            {
+                gameManager = gameObject.AddComponent<GameManagerNonVR>();
+            }
         }
         else
         {
-            gameManager = gameObject.AddComponent<GameManagerNonVR>();
+            gameManager = gameObject.AddComponent<SpiderFighterVRManager>();
         }
     }
 }

@@ -9,7 +9,7 @@ public class PlayerControllerScript : MonoBehaviour
 {
     public float speed = 3.0f;
     public float gravity = 9.81f;
-    public Transform cameraTransform; // Reference to the camera transform
+    public Transform cameraTransform;
 
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
@@ -26,7 +26,7 @@ public class PlayerControllerScript : MonoBehaviour
     private PointerEventData pointerEventData;
     private EventSystem eventSystem;
 
-    void Awake()
+    protected void Awake()
     {
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main;
@@ -57,7 +57,7 @@ public class PlayerControllerScript : MonoBehaviour
         }
     }
 
-    void Update()
+    protected void Update()
     {
         if (isVR)
         {
@@ -69,7 +69,7 @@ public class PlayerControllerScript : MonoBehaviour
         }
     }
 
-    void UpdateVR()
+    protected void UpdateVR()
     {
         UnityEngine.XR.InputDevice device = InputDevices.GetDeviceAtXRNode(inputSource);
         device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
@@ -87,7 +87,7 @@ public class PlayerControllerScript : MonoBehaviour
         characterController.Move(moveDirection * Time.deltaTime);
     }
 
-    void UpdateNonVR()
+    protected void UpdateNonVR()
     {
         inputAxis = moveAction.ReadValue<Vector2>();
 
