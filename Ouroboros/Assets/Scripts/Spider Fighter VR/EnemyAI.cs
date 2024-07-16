@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour
 
     GameObject player;
 
+    GameObject bulletPrefab;
+
     // Stats
     float speed;
     float health;
@@ -26,6 +28,10 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 lookAt = player.transform.position;
+        lookAt.y = transform.position.y;
+        transform.LookAt(lookAt);
+
         switch (enemySpawningAI.type)
         {
             case EnemySpawningAI.enemyTypes.Basic:
