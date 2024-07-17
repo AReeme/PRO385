@@ -6,42 +6,45 @@ using static EnemySpawningAI;
 public class EnemyAI : MonoBehaviour
 {
     EnemySpawningAI enemySpawningAI;
-
     GameObject player;
-
     GameObject bulletPrefab;
+    bool running;
+    Vector3 lookAt;
 
     // Stats
     float speed;
     float health;
     float maxHealth;
     float damage;
-    float bulletDamage;
+    float bulletSpeed = 15;
 
     // Start is called before the first frame update
     void Start()
     {
+        enemySpawningAI = FindAnyObjectByType<EnemySpawningAI>();
         player = GameObject.FindGameObjectWithTag("Player");
+        running = true;
         SetStats();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 lookAt = player.transform.position;
+        lookAt = player.transform.position;
         lookAt.y = transform.position.y;
         transform.LookAt(lookAt);
 
         switch (enemySpawningAI.type)
         {
             case EnemySpawningAI.enemyTypes.Basic:
-                Vector3.MoveTowards(this.gameObject.transform.position, player.transform.position, speed);
+                MoveTowardsPlayer();
                 break;
             case EnemySpawningAI.enemyTypes.Long_Leg:
-                Vector3.MoveTowards(this.gameObject.transform.position, player.transform.position, speed);
+                MoveTowardsPlayer();
                 break;
             case EnemySpawningAI.enemyTypes.Black_Widow:
-                Vector3.MoveTowards(this.gameObject.transform.position, player.transform.position, speed);
+                MoveTowardsPlayer();
+                if (running) SpawnCoroutine();
                 break;
         }
     }
@@ -53,19 +56,18 @@ public class EnemyAI : MonoBehaviour
         {
             case enemyTypes.Basic:
                 maxHealth = 30;
-                speed = 5;
+                speed = 0.5f;
                 damage = 10;
                 break;
             case enemyTypes.Long_Leg:
                 maxHealth = 15;
-                speed = 10;
+                speed = 1;
                 damage = 7.5f;
                 break;
             case enemyTypes.Black_Widow:
                 maxHealth = 25;
-                speed = 2.5f;
+                speed = 0.25f;
                 damage = 25;
-                bulletDamage = 5;
                 break;
         }
     }
@@ -74,5 +76,24 @@ public class EnemyAI : MonoBehaviour
     {
         //player.health -= damage
         Destroy(this.gameObject);
+    }
+
+    IEnumerator SpawnCoroutine()
+    {
+        running = false;
+        yield return new WaitForSeconds(10f);
+        SpawnBullet(); 
+        running = true;
+    }
+
+    void SpawnBullet()
+    {
+        GameObject bulletShot = Instantiate(bulletPrefab, this.gameObject.transform.position, Quaternion.LookRotation(lookAt));
+        bulletShot.transform.position = Vector3.MoveTowards(bulletShot.transform.position, player.transform.position, bulletSpeed);
+    }
+
+    void MoveTowardsPlayer()
+    {
+        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, player.transform.position, speed * Time.deltaTime);
     }
 }
