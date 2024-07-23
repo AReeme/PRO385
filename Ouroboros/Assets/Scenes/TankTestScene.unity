@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 214432137}
   - component: {fileID: 214432136}
   m_Layer: 0
-  m_Name: something
+  m_Name: Morningwood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,12 +284,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214432134}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.03, y: 0.366, z: 0}
-  m_LocalScale: {x: 1.6507, y: 0.2565, z: 0.22076}
+  m_LocalRotation: {x: -0.2391483, y: -0.6654383, z: 0.2391483, w: 0.6654383}
+  m_LocalPosition: {x: -0.00008128206, y: 168.01457, z: 186.28423}
+  m_LocalScale: {x: 237.1902, y: 36.85666, z: 31.721151}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 519833275}
+  m_Father: {fileID: 1406424217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &214432136
 BoxCollider:
@@ -831,13 +831,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519833271}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.35, y: 0.453, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.2017708, y: 0.16233432, z: 1.7950501}
   m_LocalScale: {x: 1.2644315, y: 1.2644315, z: 1.2644315}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 214432135}
-  m_Father: {fileID: 0}
+  - {fileID: 806812420}
+  - {fileID: 1533040299}
+  m_Father: {fileID: 1671165080}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &623993384
 GameObject:
@@ -1023,6 +1024,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 806812420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &678068120 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
+  m_PrefabInstance: {fileID: 1111781968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &681515499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1217,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1869273903}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TankController, Assembly-CSharp
         m_MethodName: SwitchToWeaponTankMissle
         m_Mode: 1
@@ -1390,7 +1396,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1869273903}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TankController, Assembly-CSharp
         m_MethodName: Fire
         m_Mode: 1
@@ -1475,7 +1481,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: -0.43, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 3.318756, y: 1.1668056, z: -4.5262156}
   serializedVersion: 2
   m_UseSpring: 1
   m_Spring:
@@ -1660,7 +1666,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1743,13 +1749,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806812413}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.847, y: 1.31, z: 0.251}
-  m_LocalScale: {x: 0.03861174, y: 0.33301, z: 0.05511937}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.39780727, y: 0.6777749, z: 0.19850819}
+  m_LocalScale: {x: 0.03053684, y: 0.26336738, z: 0.04359222}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 671759762}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 519833275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &806812421
 MonoBehaviour:
@@ -1768,7 +1774,7 @@ MonoBehaviour:
   resetPosition: {fileID: 806812420}
   forwardBackTilt: 0
   sideTilt: 0
-  tank: {fileID: 1869273898}
+  tank: {fileID: 1671165078}
   rotationSpeed: {x: 0, y: 50, z: 0}
 --- !u!1 &819544678
 GameObject:
@@ -2080,7 +2086,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1869273903}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TankController, Assembly-CSharp
         m_MethodName: SwitchToWeaponFlameThrower
         m_Mode: 1
@@ -2136,7 +2142,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1671165080}
     m_Modifications:
     - target: {fileID: 202364687, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_TagString
@@ -2220,31 +2226,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.254
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.58
+      value: -0.87066567
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.12
+      value: 1.9150501
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2252,7 +2258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: 5adc8f55123be994e9350ab3c64f08ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2398,7 +2404,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1869273903}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TankController, Assembly-CSharp
         m_MethodName: SwitchToWeaponMachineGun
         m_Mode: 1
@@ -2666,12 +2672,13 @@ Transform:
   m_GameObject: {fileID: 1406424216}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2391483, y: 0.6654383, z: -0.2391483, w: 0.6654383}
-  m_LocalPosition: {x: 2.447, y: 0.819, z: 0}
-  m_LocalScale: {x: 0.008799676, y: 0.008799676, z: 0.008799676}
+  m_LocalPosition: {x: -4.1047707, y: 0.5283343, z: 1.7950501}
+  m_LocalScale: {x: 0.008799676, y: 0.008799676, z: 0.008799677}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 819544679}
-  m_Father: {fileID: 0}
+  - {fileID: 214432135}
+  m_Father: {fileID: 1671165080}
   m_LocalEulerAnglesHint: {x: 39.535, y: 90, z: 0}
 --- !u!1 &1533040291
 GameObject:
@@ -2713,7 +2720,7 @@ MonoBehaviour:
   resetPosition: {fileID: 1533040299}
   forwardBackTilt: 0
   sideTilt: 0
-  tank: {fileID: 1869273898}
+  tank: {fileID: 1671165078}
   rotationSpeed: {x: 0, y: 50, z: 0}
 --- !u!59 &1533040293
 HingeJoint:
@@ -2727,7 +2734,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: -0.43, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 3.8895588, y: 1.1668056, z: -4.7441726}
   serializedVersion: 2
   m_UseSpring: 1
   m_Spring:
@@ -2995,14 +3002,68 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533040291}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.847, y: 1.31, z: -0.36}
-  m_LocalScale: {x: 0.03861174, y: 0.33301, z: 0.05511937}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.39780727, y: 0.6777749, z: -0.28471297}
+  m_LocalScale: {x: 0.03053684, y: 0.26336738, z: 0.04359222}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 681515500}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 519833275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1671165078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671165080}
+  - component: {fileID: 1671165079}
+  m_Layer: 0
+  m_Name: Tank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1671165079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671165078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228760fd66d2e514caeab11eb8132a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TankMuzzle: {fileID: 1765818437}
+  MachineGunMuzzle: {fileID: 1765818437}
+  MachineGunDamage: 5
+  FlameDamage: 10
+  machineGunRange: 500
+  TankMissle: {fileID: 2737778649597086666, guid: 21613b5b5b1402242b24f3f30633c386, type: 3}
+--- !u!4 &1671165080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671165078}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 6.5517707, y: 0.2906657, z: -1.7950501}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1869273902}
+  - {fileID: 678068120}
+  - {fileID: 519833275}
+  - {fileID: 1406424217}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1688609006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,9 +3241,8 @@ GameObject:
   - component: {fileID: 1869273901}
   - component: {fileID: 1869273900}
   - component: {fileID: 1869273899}
-  - component: {fileID: 1869273903}
   m_Layer: 0
-  m_Name: '"Tanky"'
+  m_Name: PretendTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3267,31 +3327,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869273898}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.25, y: 0.21, z: -0.07937435}
-  m_LocalScale: {x: 0.48146, y: 0.48146, z: 0.48146}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.141, y: -0.255, z: 1.7156758}
+  m_LocalScale: {x: 3.263625, y: 0.14433208, z: 1.4086558}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1671165080}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1869273903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869273898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 228760fd66d2e514caeab11eb8132a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TankMuzzle: {fileID: 1765818437}
-  MachineGunMuzzle: {fileID: 1765818437}
-  MachineGunDamage: 5
-  FlameDamage: 10
-  machineGunRange: 500
-  TankMissle: {fileID: 2737778649597086666, guid: 21613b5b5b1402242b24f3f30633c386, type: 3}
 --- !u!1 &2006163790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,11 +3804,6 @@ SceneRoots:
   - {fileID: 756192408}
   - {fileID: 2092139010}
   - {fileID: 1249617921}
-  - {fileID: 519833275}
-  - {fileID: 1111781968}
-  - {fileID: 806812420}
-  - {fileID: 1533040299}
-  - {fileID: 1869273902}
   - {fileID: 900322525}
-  - {fileID: 1406424217}
   - {fileID: 1765818437}
+  - {fileID: 1671165080}
