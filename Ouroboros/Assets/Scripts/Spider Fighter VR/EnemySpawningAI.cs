@@ -24,6 +24,8 @@ public class EnemySpawningAI : MonoBehaviour
     int spawnNumber;
     int spawnPointIndex;
     bool running;
+    Vector3 originPoint;
+    Vector3 randomPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -70,16 +72,24 @@ public class EnemySpawningAI : MonoBehaviour
         {
             spawnPointIndex = Mathf.RoundToInt(Random.Range(1, spawnPoints.Length));
 
+            float radius = 10f;
+            originPoint = spawnPoints[spawnPointIndex - 1].transform.position;
+            float xPos = originPoint.x += Random.Range(-radius, radius);
+            float yPos = originPoint.y;
+            float zPos = originPoint.z += Random.Range(-radius, radius);
+
+            randomPosition = new Vector3(xPos, yPos, zPos);
+
             switch (type)
             {
                 case enemyTypes.Basic:
-                    Instantiate(basicSpider, spawnPoints[spawnPointIndex - 1].transform.position, Quaternion.identity);
+                    Instantiate(basicSpider, randomPosition, Quaternion.identity);
                     break;
                 case enemyTypes.Long_Leg:
-                    Instantiate(longLegSpider, spawnPoints[spawnPointIndex - 1].transform.position, Quaternion.identity);
+                    Instantiate(longLegSpider, randomPosition, Quaternion.identity);
                     break;
                 case enemyTypes.Black_Widow:
-                    Instantiate(blackSpider, spawnPoints[spawnPointIndex - 1].transform.position, Quaternion.identity);
+                    Instantiate(blackSpider, randomPosition, Quaternion.identity);
                     break;
             }
         }

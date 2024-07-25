@@ -74,8 +74,11 @@ public class EnemyAI : MonoBehaviour
 
     void OnColliderEnter(Collider other)
     {
-        //player.health -= damage
-        Destroy(this.gameObject);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //player.health -= damage
+            Destroy(this.gameObject);
+        }
     }
 
     IEnumerator SpawnCoroutine()
