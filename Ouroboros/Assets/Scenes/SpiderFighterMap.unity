@@ -3355,9 +3355,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484bc019bc3aa6f409379ec7d3643707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicSpider: {fileID: 8610584337150820597, guid: 0832326d8777ef24a95fb05397a5a37b, type: 3}
-  longLegSpider: {fileID: 8610584337150820597, guid: 79b5bac88b439c14c980f2936b14985f, type: 3}
-  blackSpider: {fileID: 8610584337150820597, guid: e28f3f45e91438747ae5e3dc916e7e4e, type: 3}
+  basicSpider: {fileID: 8092802462758944164, guid: 0ed55497c2791cc4c94d40bf3c192c10, type: 3}
+  longLegSpider: {fileID: 8092802462758944164, guid: a9736ad51face5b43955ac13315c83aa, type: 3}
+  blackSpider: {fileID: 8092802462758944164, guid: 75997a3529282af4295f0a143bf1aa3d, type: 3}
   spawnPoints:
   - {fileID: 1097389657}
   - {fileID: 1056961109}
