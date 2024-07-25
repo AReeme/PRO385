@@ -62,17 +62,6 @@ public class JoyStickController : MonoBehaviour
         }
 
         sideTilt = topOfJoyStick.rotation.eulerAngles.z;
-        //if (sideTilt < 355 && sideTilt > 290)
-        //{
-        //    sideTilt = Math.Abs(sideTilt - 360);
-        //    Debug.Log("Backward");
-        //    tank.transform.position = MoveTankBackward();
-        //}
-        //else if (sideTilt > 5 && sideTilt < 74)
-        //{
-        //    Debug.Log("Forward?");
-        //    tank.transform.position = MoveTankForward();
-        //}
 
 		if (sideTilt < 355 && sideTilt > 290)
 		{
@@ -115,12 +104,4 @@ public class JoyStickController : MonoBehaviour
 		// Start the return process
 		isReturning = true;
 	}
-
-	//private void OnTriggerStay(Collider other)
-	//{
-	//	if(other.CompareTag("PlayerHand"))
-	//       {
-	//           transform.LookAt(other.transform.position, transform.up);
-	//       }
-	//}
 }
