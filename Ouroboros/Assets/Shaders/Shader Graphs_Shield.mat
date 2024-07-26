@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Shield 2
+  m_Name: Shader Graphs_Shield
   m_Shader: {fileID: -6465566751694194690, guid: 74a8baacc4938c1498b194c8c68d5a48, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -57,14 +57,19 @@ Material:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _FresnelPower: 1
+    - _Noise: 100
+    - _NoiseAmount: 0.671
+    - _NoisePower: 3
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _BackColor: {r: 0, g: 0, b: 0, a: 0}
-    - _BackColors: {r: 0, g: 9.35153, b: 11.984314, a: 0.24705882}
-    - _FresnelColor: {r: 1.3333912, g: 1.3694288, b: 3.4415908, a: 1}
+    - _BackColors: {r: 1, g: 0.015499879, b: 0, a: 1}
+    - _FresnelColor: {r: 0.27076253, g: 0.33662367, b: 0.69886, a: 0.2}
     - _FrontColor: {r: 1, g: 1, b: 1, a: 0.3921569}
-    - _FrontColors: {r: 0.59896106, g: 2.7286003, b: 4.237095, a: 0.19215687}
+    - _FrontColors: {r: 4.8741446, g: 0, b: 0.07554958, a: 0.65882355}
+    - _MainSpeed: {r: -0.5, g: 0, b: 0, a: 0}
+    - _NoiseSpeed: {r: 0, g: -0.7, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1132097146978833849
 MonoBehaviour:
