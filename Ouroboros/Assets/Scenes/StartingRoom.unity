@@ -7022,7 +7022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   gravity: 9.81
-  cameraTransform: {fileID: 0}
+  cameraTransform: {fileID: 655302041}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
