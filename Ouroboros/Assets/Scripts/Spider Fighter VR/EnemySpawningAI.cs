@@ -83,13 +83,13 @@ public class EnemySpawningAI : MonoBehaviour
             switch (type)
             {
                 case enemyTypes.Basic:
-                    Instantiate(basicSpider, randomPosition, Quaternion.identity);
+                    Instantiate(basicSpider, spawnPoints[spawnPointIndex - 1].transform.position, Quaternion.identity);
                     break;
                 case enemyTypes.Long_Leg:
-                    Instantiate(longLegSpider, randomPosition, Quaternion.identity);
+                    Instantiate(longLegSpider, spawnPoints[spawnPointIndex - 1].transform.position, Quaternion.identity);
                     break;
                 case enemyTypes.Black_Widow:
-                    Instantiate(blackSpider, randomPosition, Quaternion.identity);
+                    Instantiate(blackSpider, spawnPoints[spawnPointIndex - 1].transform.position, Quaternion.identity);
                     break;
             }
         }

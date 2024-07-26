@@ -1665,8 +1665,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 3789785889067546999}
   m_AABB:
-    m_Center: {x: -0.018415168, y: -0.06214229, z: -0.0034504235}
-    m_Extent: {x: 0.47268665, y: 0.23077056, z: 0.5812644}
+    m_Center: {x: -0.0032338798, y: -0.062142283, z: -0.028820291}
+    m_Extent: {x: 0.22841418, y: 0.23077056, z: 0.30561376}
   m_DirtyAABB: 0
 --- !u!1 &7607038565534043489
 GameObject:
@@ -1807,6 +1807,7 @@ GameObject:
   - component: {fileID: 1114371819382518118}
   - component: {fileID: 7241128719490289938}
   - component: {fileID: 6137516402886412633}
+  - component: {fileID: -6678731128953442962}
   m_Layer: 0
   m_Name: BlackWidow
   m_TagString: Untagged
@@ -1897,8 +1898,29 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.52968806, z: 1.1035566}
-  m_Center: {x: 0, y: 0.23515597, z: 0.05177842}
+  m_Size: {x: 0.6131921, y: 0.52968806, z: 0.6438808}
+  m_Center: {x: -0.023170292, y: 0.23515597, z: 0.12217527}
+--- !u!95 &-6678731128953442962
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092802462758944164}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ccf815ddac8eb3418e557277f3861bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8205480225432733019
 GameObject:
   m_ObjectHideFlags: 0
