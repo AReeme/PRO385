@@ -77,7 +77,7 @@ public class EnemyAI : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //player.health -= damage
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
