@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawningAI : MonoBehaviour
+public class EnemySpawningAI : MonoBehaviour, IGameComponent
 {
     public enum enemyTypes
     {
@@ -27,32 +27,40 @@ public class EnemySpawningAI : MonoBehaviour
     Vector3 originPoint;
     Vector3 randomPosition;
 
-    // Start is called before the first frame update
+    public int TotalSpidersSpawned { get; private set; }
+
+
+
     void Start()
     {
-        // Spawns Random Spider
-        SpawnSpider();
+        running = false;
+        TotalSpidersSpawned = 0;
+    }
 
-        // Bool that checks to see if Coroutine is available to run
+    void Update()
+    {
+        if (running)
+        {
+            StartCoroutine(SpawnCoroutine());
+        }
+    }
+
+    public void StartSpawning()
+    {
         running = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StopSpawning()
     {
-        // Spiders Spawn every ten Seconds
-        if (running) StartCoroutine(SpawnCoroutine());
+        running = false;
+        StopAllCoroutines();
     }
 
     void SpawnSpider()
     {
-        // Randomizes which Spider to Spawn
         randomNumber = Mathf.RoundToInt(Random.Range(1, 3));
-
-        // Randomizes how many spiders to spawn
         spawnNumber = Mathf.RoundToInt(Random.Range(1, 5));
 
-        // Sets Enemy Type
         switch (randomNumber)
         {
             case 1:
@@ -66,17 +74,15 @@ public class EnemySpawningAI : MonoBehaviour
                 break;
         }
 
-
-        // Instantiates Spiders at Randomized Spawn Points
         for (int i = 0; i < spawnNumber; i++)
         {
             spawnPointIndex = Mathf.RoundToInt(Random.Range(1, spawnPoints.Length));
 
             float radius = 10f;
             originPoint = spawnPoints[spawnPointIndex - 1].transform.position;
-            float xPos = originPoint.x += Random.Range(-radius, radius);
+            float xPos = originPoint.x + Random.Range(-radius, radius);
             float yPos = originPoint.y;
-            float zPos = originPoint.z += Random.Range(-radius, radius);
+            float zPos = originPoint.z + Random.Range(-radius, radius);
 
             randomPosition = new Vector3(xPos, yPos, zPos);
 
@@ -92,6 +98,7 @@ public class EnemySpawningAI : MonoBehaviour
                     Instantiate(blackSpider, randomPosition, Quaternion.identity);
                     break;
             }
+            TotalSpidersSpawned++;
         }
     }
 
@@ -101,5 +108,31 @@ public class EnemySpawningAI : MonoBehaviour
         yield return new WaitForSeconds(10f);
         SpawnSpider();
         running = true;
+    }
+
+    // IGameComponent methods
+    public void Initialize()
+    {
+        // Initialize if needed
+    }
+
+    public void UpdateComponent()
+    {
+        Update();
+    }
+
+    public void Pause()
+    {
+        StopSpawning();
+    }
+
+    public void Resume()
+    {
+        StartSpawning();
+    }
+
+    public void End()
+    {
+        StopSpawning();
     }
 }
