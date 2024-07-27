@@ -1045,6 +1045,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 554234755}
     m_Modifications:
+    - target: {fileID: 671907354549060724, guid: 48cab3538b08c574ca6c4732d7f4de93, type: 3}
+      propertyPath: m_TagString
+      value: Shield
+      objectReference: {fileID: 0}
     - target: {fileID: 5139559409309537534, guid: 48cab3538b08c574ca6c4732d7f4de93, type: 3}
       propertyPath: m_Name
       value: ShieldBase
@@ -3298,7 +3302,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
