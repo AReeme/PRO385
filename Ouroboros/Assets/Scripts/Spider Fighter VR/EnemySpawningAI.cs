@@ -27,7 +27,9 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
     Vector3 originPoint;
     Vector3 randomPosition;
 
-    public int TotalSpidersSpawned { get; private set; }
+    public int TotalSpidersSpawned { get; set; }
+    public int Score { get; set; }
+    public int Difficulty { get; set; }
 
 
 
@@ -35,6 +37,8 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
     {
         running = false;
         TotalSpidersSpawned = 0;
+        Score = 0;
+        Difficulty = 1;
     }
 
     void Update()
@@ -60,6 +64,8 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
     {
         randomNumber = Mathf.RoundToInt(Random.Range(1, 3));
         spawnNumber = Mathf.RoundToInt(Random.Range(1, 5));
+
+        spawnNumber = spawnNumber * Difficulty;
 
         switch (randomNumber)
         {
@@ -99,6 +105,7 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
                     break;
             }
             TotalSpidersSpawned++;
+            Debug.Log(TotalSpidersSpawned);
         }
     }
 
@@ -134,5 +141,10 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
     public void End()
     {
         StopSpawning();
+    }
+
+    public void UpdateScore(int score = 10)
+    {
+        Score += score;
     }
 }

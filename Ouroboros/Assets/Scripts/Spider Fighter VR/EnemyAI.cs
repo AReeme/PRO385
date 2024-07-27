@@ -81,6 +81,17 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Shield"))
+        {
+            enemySpawningAI.UpdateScore();
+            Destroy(this.gameObject);
+        }
+
+        //enemySpawningAI.TotalSpidersSpawned -=1;
+    }
+
     IEnumerator SpawnCoroutine()
     {
         running = false;

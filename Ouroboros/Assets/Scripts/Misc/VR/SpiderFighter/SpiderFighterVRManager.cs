@@ -16,6 +16,7 @@ public class SpiderFighterVRManager : GameManagerVRBase
     {
         InitializeGame();
         PlayerHealth = 100;
+        Difficulty = 1;
     }
 
     protected override void InitializeGame()
@@ -39,6 +40,7 @@ public class SpiderFighterVRManager : GameManagerVRBase
         if (enemySpawner != null)
         {
             EnemyCount = enemySpawner.TotalSpidersSpawned;
+            PlayerScore = enemySpawner.Score;
         }
 
     }
@@ -70,10 +72,19 @@ public class SpiderFighterVRManager : GameManagerVRBase
         }
     }
 
+    public void Update()
+    {
+        HandleGameUpdate();
+
+        if (enemySpawner != null)
+        {
+            enemySpawner.Difficulty = Difficulty;
+        }
+    }
+
     IEnumerator SpawnCoroutine()
     {
         yield return new WaitForSeconds(5f);
         enemySpawner.StartSpawning();
-        EnemyCount+= 1;
     }
 }
