@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Anchor
   - PlayerHand
+  - Lever
+  - MoveForward
+  - MoveBackward
+  - RR
+  - RL
   layers:
   - Default
   - TransparentFX
@@ -15,7 +20,7 @@ TagManager:
   - UI
   - Obstacle
   - Wall
-  - 
+  - Levers
   - 
   - 
   - 

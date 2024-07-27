@@ -6,6 +6,10 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float health = 5;
+    public int flamethrowerFuel = 150;
+    public int missles = 15;
+    public int battery = 5;
     [SerializeField] public Transform TankMuzzle;
     [SerializeField] public Transform MachineGunMuzzle;
     [SerializeField] public float MachineGunDamage = 5;
@@ -43,22 +47,29 @@ public class TankController : MonoBehaviour
                 }
 				break;
             case 1:
-				RaycastHit hit2;
-				if (Physics.Raycast(MachineGunMuzzle.position, MachineGunMuzzle.forward, out hit2, machineGunRange))
-				{
-                    Debug.Log("Flame hit");
-					if (hit2.transform.tag == "Enemy")
-					{
-						GameObject enemy = hit2.transform.gameObject;
-
-						//enemy.GetComponent<EnemyAI>
-					}
-				}
+                if(flamethrowerFuel > 0)
+                {
+                    flamethrowerFuel -= 1;
+				    RaycastHit hit2;
+				    if (Physics.Raycast(MachineGunMuzzle.position, MachineGunMuzzle.forward, out hit2, machineGunRange))
+				    {
+                        Debug.Log("Flame hit");
+				    	if (hit2.transform.tag == "Enemy")
+				    	{
+				    		GameObject enemy = hit2.transform.gameObject;
+				    		//enemy.GetComponent<EnemyAI>
+				    	}
+				    }
+                }
 				break;
             case 2:
-                Debug.Log("Missle Shot");
-                Instantiate(TankMissle, TankMuzzle.transform);
-                break;
+                if(missles > 0)
+                {
+                    missles -= 1;
+                    Debug.Log("Missle Shot");
+                    Instantiate(TankMissle, TankMuzzle.transform);
+                }
+                    break;
             default:
                 break;
         }
@@ -82,5 +93,33 @@ public class TankController : MonoBehaviour
     public void Shield()
     {
         //funny code goes brrrr
+    }
+
+    public void GetFuelAmmo()
+    {
+        flamethrowerFuel += 25;
+        if (flamethrowerFuel > 150)
+        {
+            flamethrowerFuel = 150;
+        }
+
+    }
+
+    public void GetMissleAmmo()
+    {
+        missles += 5;
+        if(missles > 15)
+        {
+            missles = 15;
+        }
+    }
+
+    public void GetBattery()
+    {
+        battery += 1;
+        if(battery > 5)
+        {
+            battery = 5;
+        }
     }
 }
