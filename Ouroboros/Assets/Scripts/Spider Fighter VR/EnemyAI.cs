@@ -110,4 +110,13 @@ public class EnemyAI : MonoBehaviour
     {
         this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, player.transform.position, speed * Time.deltaTime);
     }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

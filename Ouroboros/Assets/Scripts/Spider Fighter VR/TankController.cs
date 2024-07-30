@@ -35,14 +35,14 @@ public class TankController : MonoBehaviour
         {
             case 0:
                 RaycastHit hit;
-				if (Physics.Raycast(MachineGunMuzzle.position, MachineGunMuzzle.forward, out hit, machineGunRange))
+                Debug.DrawRay(MachineGunMuzzle.transform.position, MachineGunMuzzle.forward, Color.blue);
+				if (Physics.Raycast(MachineGunMuzzle.position, MachineGunMuzzle.forward, out hit, machineGunRange, default))
 				{
                     Debug.Log("Machine Gun Bullet Hit");
                     if(hit.transform.tag == "Enemy")
                     {
                         GameObject enemy = hit.transform.gameObject;
-
-                        //enemy.GetComponent<EnemyAI>()
+                        enemy.GetComponent<EnemyAI>().TakeDamage(5);
                     }
                 }
 				break;
@@ -51,12 +51,14 @@ public class TankController : MonoBehaviour
                 {
                     flamethrowerFuel -= 1;
 				    RaycastHit hit2;
+                    Debug.DrawRay(MachineGunMuzzle.transform.position, MachineGunMuzzle.forward, Color.yellow);
 				    if (Physics.Raycast(MachineGunMuzzle.position, MachineGunMuzzle.forward, out hit2, machineGunRange))
 				    {
                         Debug.Log("Flame hit");
 				    	if (hit2.transform.tag == "Enemy")
 				    	{
 				    		GameObject enemy = hit2.transform.gameObject;
+                            enemy.GetComponent<EnemyAI>().TakeDamage(10);
 				    		//enemy.GetComponent<EnemyAI>
 				    	}
 				    }

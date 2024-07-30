@@ -11,7 +11,8 @@ TagManager:
   - MoveBackward
   - RR
   - RL
-  - Sheild
+  - Shield
+  - Enemy
   layers:
   - Default
   - TransparentFX

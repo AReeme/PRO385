@@ -16,4 +16,20 @@ public class TankMissle : MonoBehaviour
 	{
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if(other.gameObject.tag == "Enemy")
+		{
+			Collider[] hitcolliders = Physics.OverlapSphere(gameObject.transform.position, 30, default);
+			foreach(var hitcollider in hitcolliders)
+			{ 
+				if(hitcollider.gameObject.tag == "Enemy")
+				{
+					hitcollider.gameObject.GetComponent<EnemyAI>().TakeDamage(100);
+				}
+			}
+
+		}
+	}
 }
