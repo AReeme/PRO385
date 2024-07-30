@@ -33,7 +33,7 @@ public class UFOSpawningAI : MonoBehaviour
         running = false;
         TotalSpidersSpawned = 0;
         Score = 0;
-        Difficulty = 2;
+        Difficulty = 1;
     }
 
     void Update()
@@ -79,7 +79,7 @@ public class UFOSpawningAI : MonoBehaviour
 
             TotalSpidersSpawned++;
             
-            Difficulty = Mathf.RoundToInt(Mathf.Pow(Difficulty, 1.3f));
+            Difficulty++;
         }
     }
 
