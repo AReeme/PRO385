@@ -1,20 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static EnemySpawningAI;
 
-public class EnemySpawningAI : MonoBehaviour, IGameComponent
+public class UFOSpawningAI : MonoBehaviour
 {
     public enum enemyTypes
-    {
-        Basic,
-        Long_Leg,
-        Black_Widow
+    { 
+        UFO
     }
 
     // Prefabs
-    [SerializeField] GameObject basicSpider;
-    [SerializeField] GameObject longLegSpider;
-    [SerializeField] GameObject blackSpider;
+    [SerializeField] GameObject UFO;
     [SerializeField] GameObject[] spawnPoints;
 
     public enemyTypes type;
@@ -31,14 +28,12 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
     public int Score { get; set; }
     public int Difficulty { get; set; }
 
-
-
     void Start()
     {
         running = false;
         TotalSpidersSpawned = 0;
         Score = 0;
-        Difficulty = 1;
+        Difficulty = 2;
     }
 
     void Update()
@@ -62,23 +57,11 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
 
     void SpawnSpider()
     {
-        randomNumber = Mathf.RoundToInt(Random.Range(1, 3));
         spawnNumber = Mathf.RoundToInt(Random.Range(1, 5));
 
         spawnNumber = spawnNumber * Difficulty;
 
-        switch (randomNumber)
-        {
-            case 1:
-                type = enemyTypes.Basic;
-                break;
-            case 2:
-                type = enemyTypes.Long_Leg;
-                break;
-            case 3:
-                type = enemyTypes.Black_Widow;
-                break;
-        }
+        type = enemyTypes.UFO;
 
         for (int i = 0; i < spawnNumber; i++)
         {
@@ -92,21 +75,11 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
 
             randomPosition = new Vector3(xPos, yPos, zPos);
 
-            switch (type)
-            {
-                case enemyTypes.Basic:
-                    Instantiate(basicSpider, randomPosition, Quaternion.identity);
-                    break;
-                case enemyTypes.Long_Leg:
-                    Instantiate(longLegSpider, randomPosition, Quaternion.identity);
-                    break;
-                case enemyTypes.Black_Widow:
-                    Instantiate(blackSpider, randomPosition, Quaternion.identity);
-                    break;
-            }
-            TotalSpidersSpawned++;
+            Instantiate(UFO, randomPosition, Quaternion.identity);
 
-            Difficulty = Mathf.FloorToInt(Mathf.Pow(Difficulty, 1.25f));
+            TotalSpidersSpawned++;
+            
+            Difficulty = Mathf.RoundToInt(Mathf.Pow(Difficulty, 1.3f));
         }
     }
 
