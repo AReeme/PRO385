@@ -106,7 +106,7 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
             }
             TotalSpidersSpawned++;
 
-            Difficulty = Mathf.FloorToInt(Mathf.Pow(Difficulty, 1.25f));
+            Difficulty++;
         }
     }
 
