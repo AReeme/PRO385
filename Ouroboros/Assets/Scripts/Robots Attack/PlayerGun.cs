@@ -18,9 +18,12 @@ public class PlayerGun : MonoBehaviour
 
     public void shoot()
     {
-        Instantiate(playerBullet, muzzlePosition.position, muzzlePosition.rotation);
-        canShoot = false;
-        StartCoroutine("ResetFire", fireRate);
+        if(canShoot == true)
+        {
+            Instantiate(playerBullet, muzzlePosition.position, muzzlePosition.rotation);
+            canShoot = false;
+            StartCoroutine("ResetFire", fireRate);
+        }
     }
 
     public void ResetFire()

@@ -5,10 +5,21 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     float bulletDamage = 5;
+	[SerializeField] private float speed = 20f;
+	[SerializeField] private float lifetime = 5f;
 
-    void OnColliderEnter(Collider other)
+	void Start()
+	{
+		Destroy(gameObject, lifetime);
+	}
+
+	void Update()
+	{
+		transform.Translate(Vector3.forward * speed * Time.deltaTime);
+	}
+	void OnColliderEnter(Collider other)
     {
         //player.health -= bulletDamage
-        Destroy(this.gameObject);
+       // Destroy(this.gameObject);
     }
 }
