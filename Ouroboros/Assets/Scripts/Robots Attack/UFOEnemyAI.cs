@@ -1,0 +1,125 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UFOEnemyAI : MonoBehaviour
+{
+    UFOSpawningAI enemySpawningAI;
+    public GameObject UFOFront;
+    GameObject player;
+    public GameObject bulletPrefab;
+    bool running;
+    Vector3 lookAt;
+
+    // Stats
+    float speed;
+    float health;
+    float maxHealth;
+    float damage;
+    float bulletSpeed = 15f;
+    float hoverHeight = 0.5f;
+    float hoverSpeed = 1f;
+    bool isHovering = false;
+    bool hasStopped = false;
+    Vector3 originalPosition;
+    Rigidbody rb;
+
+    // Bounce properties
+    public float bounceForce = 5f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        enemySpawningAI = FindObjectOfType<UFOSpawningAI>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody>();
+        running = true;
+        SetStats();
+        originalPosition = transform.position;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (player != null)
+        {
+            lookAt = player.transform.position;
+            lookAt.y = transform.position.y;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt - transform.position), Time.deltaTime * speed);
+
+            if (!hasStopped)
+            {
+                if (Vector3.Distance(transform.position, player.transform.position) > 1f)
+                {
+                    MoveTowardsPlayer();
+                    isHovering = false;
+                }
+                else
+                {
+                    Hover();
+                    isHovering = true;
+                    hasStopped = true;
+                }
+            }
+            else
+            {
+                Hover();
+            }
+
+            if (running) StartCoroutine(SpawnCoroutine());
+        }
+    }
+
+    void SetStats()
+    {
+        // Sets Stats
+        maxHealth = 30;
+        speed = 0.5f;
+        damage = 10;
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //player.health -= damage;
+            Destroy(this.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Wall"))
+        {
+            Vector3 bounceDirection = Vector3.Reflect(transform.forward, other.contacts[0].normal);
+            rb.velocity = bounceDirection * bounceForce;
+        }
+    }
+
+    IEnumerator SpawnCoroutine()
+    {
+        running = false;
+        yield return new WaitForSeconds(10f);
+        //SpawnBullet();
+        running = true;
+    }
+
+    void SpawnBullet()
+    {
+        GameObject bulletShot = Instantiate(bulletPrefab, UFOFront.transform.position, Quaternion.LookRotation(lookAt - UFOFront.transform.position));
+        Rigidbody bulletRb = bulletShot.GetComponent<Rigidbody>();
+        if (bulletRb != null)
+        {
+            bulletRb.velocity = (lookAt - UFOFront.transform.position).normalized * bulletSpeed;
+        }
+    }
+
+    void MoveTowardsPlayer()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        originalPosition = transform.position;
+    }
+
+    void Hover()
+    {
+        Vector3 hoverPosition = originalPosition;
+        hoverPosition.y += Mathf.Sin(Time.time * hoverSpeed) * hoverHeight;
+        transform.position = hoverPosition;
+    }
+}
