@@ -31,8 +31,6 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
     public int Score { get; set; }
     public int Difficulty { get; set; }
 
-
-
     void Start()
     {
         running = false;

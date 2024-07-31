@@ -11,8 +11,14 @@ TagManager:
   - MoveBackward
   - RR
   - RL
+<<<<<<< Updated upstream
   - Shield
   - Enemy
+=======
+  - Sheild
+  - Shield
+  - Wall
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

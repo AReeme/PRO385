@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static EnemySpawningAI;
 
 public class UFOSpawningAI : MonoBehaviour
 {
     public enum enemyTypes
-    { 
+    {
         UFO
     }
 
@@ -27,6 +26,7 @@ public class UFOSpawningAI : MonoBehaviour
     public int TotalSpidersSpawned { get; set; }
     public int Score { get; set; }
     public int Difficulty { get; set; }
+    private int currentEnemies;
 
     void Start()
     {
@@ -34,6 +34,8 @@ public class UFOSpawningAI : MonoBehaviour
         TotalSpidersSpawned = 0;
         Score = 0;
         Difficulty = 1;
+        currentEnemies = 0;
+        StartSpawning();
     }
 
     void Update()
@@ -59,16 +61,17 @@ public class UFOSpawningAI : MonoBehaviour
     {
         spawnNumber = Mathf.RoundToInt(Random.Range(1, 5));
 
-        spawnNumber = spawnNumber * Difficulty;
+        int maxSpawnNumber = Difficulty;
+        int spawnCount = Mathf.Min(spawnNumber, maxSpawnNumber - currentEnemies);
 
         type = enemyTypes.UFO;
 
-        for (int i = 0; i < spawnNumber; i++)
+        for (int i = 0; i < spawnCount; i++)
         {
-            spawnPointIndex = Mathf.RoundToInt(Random.Range(1, spawnPoints.Length));
+            spawnPointIndex = Mathf.RoundToInt(Random.Range(0, spawnPoints.Length));
 
-            float radius = 10f;
-            originPoint = spawnPoints[spawnPointIndex - 1].transform.position;
+            float radius = 1f;
+            originPoint = spawnPoints[spawnPointIndex].transform.position;
             float xPos = originPoint.x + Random.Range(-radius, radius);
             float yPos = originPoint.y;
             float zPos = originPoint.z + Random.Range(-radius, radius);
@@ -78,8 +81,7 @@ public class UFOSpawningAI : MonoBehaviour
             Instantiate(UFO, randomPosition, Quaternion.identity);
 
             TotalSpidersSpawned++;
-            
-            Difficulty++;
+            currentEnemies++;
         }
     }
 
@@ -120,5 +122,10 @@ public class UFOSpawningAI : MonoBehaviour
     public void UpdateScore(int score = 10)
     {
         Score += score;
+    }
+
+    public void EnemyDestroyed()
+    {
+        currentEnemies--;
     }
 }
