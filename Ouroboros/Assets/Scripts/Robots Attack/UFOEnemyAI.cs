@@ -44,8 +44,10 @@ public class UFOEnemyAI : MonoBehaviour
         if (player != null)
         {
             lookAt = player.transform.position;
-            lookAt.y = transform.position.y; // Keep the y-coordinate unchanged to rotate only on the y-axis
+            lookAt.y = transform.position.y;
             Quaternion targetRotation = Quaternion.LookRotation(lookAt - transform.position);
+            Quaternion additionalRotation = Quaternion.Euler(0, 90, 0);
+            targetRotation *= additionalRotation;
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * speed);
 
             if (!hasStopped)

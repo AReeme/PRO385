@@ -2244,7 +2244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12271e5732a13744d8bbe3c99d030535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UFO: {fileID: 7869807955758637577, guid: 61616f9a62945b04488beeabb010d46c, type: 3}
+  UFO: {fileID: 3612242691616806689, guid: 80bccd8e12e339344a3993c22e448e11, type: 3}
   spawnPoints:
   - {fileID: 1825368148}
   - {fileID: 546071232}
