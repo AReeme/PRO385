@@ -11,16 +11,7 @@ public class GameSetupBase : MonoBehaviour
     {
         if (!Debug)
         {
-
-            // Choose the appropriate game manager
-            if (XRSettings.isDeviceActive)
-            {
-                gameManager = gameObject.AddComponent<GameManagerVR>();
-            }
-            else
-            {
-                gameManager = gameObject.AddComponent<GameManagerNonVR>();
-            }
+            gameManager = gameObject.AddComponent<RobotsAttackVRManager>();
         }
         else
         {

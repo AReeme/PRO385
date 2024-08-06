@@ -11363,10 +11363,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 807051348}
     m_Modifications:
-    - target: {fileID: 3735047472340101370, guid: 085ce58b196caa446a8545c9dd388793, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 487833529046422131, guid: 54fbef2e933f78b4a9443f4d2aa7d828, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -11529,6 +11525,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9213841042329470732, guid: 54fbef2e933f78b4a9443f4d2aa7d828, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735047472340101370, guid: 085ce58b196caa446a8545c9dd388793, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12600,7 +12600,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: -1.6896798e+27, y: 3.0666197e+22, z: -7.163927e-39, w: -5.3400705e-36}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 1e-45, z: 3.706e-42, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
