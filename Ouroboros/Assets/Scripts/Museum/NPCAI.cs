@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,7 @@ public class NPCAI : MonoBehaviour
 {
     NavMeshAgent agent;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] Animator anim;
 
     // Patrol
     Vector3 destination;
@@ -39,6 +41,7 @@ public class NPCAI : MonoBehaviour
         if (walkPointSet)
         {
             agent.SetDestination(destination);
+            anim.SetBool("IsWalking", true);
             startTime = Time.time;
         }
 
@@ -77,6 +80,7 @@ public class NPCAI : MonoBehaviour
     IEnumerator WaitAndSearch()
     {
         yield return new WaitForSeconds(10);
+        anim.SetBool("IsWalking", false);
         SearchForDest();
     }
 }
