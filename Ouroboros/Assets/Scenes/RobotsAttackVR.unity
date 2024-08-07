@@ -829,6 +829,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4751777570507098624, guid: 6b9d9b8e5f8df5941834020cf5e5b2a4, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751777570507098624, guid: 6b9d9b8e5f8df5941834020cf5e5b2a4, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751777570507098624, guid: 6b9d9b8e5f8df5941834020cf5e5b2a4, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751777570507098624, guid: 6b9d9b8e5f8df5941834020cf5e5b2a4, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5675632574927548728, guid: 6b9d9b8e5f8df5941834020cf5e5b2a4, type: 3}
       propertyPath: m_Name
       value: PlayerRig
