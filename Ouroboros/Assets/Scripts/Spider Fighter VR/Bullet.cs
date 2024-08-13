@@ -19,7 +19,10 @@ public class Bullet : MonoBehaviour
 	}
 	void OnColliderEnter(Collider other)
     {
+		if(other.tag == "Enemy")
+		{
+		  Destroy(this.gameObject);
+		}
         //player.health -= bulletDamage
-       // Destroy(this.gameObject);
     }
 }

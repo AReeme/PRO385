@@ -16,7 +16,11 @@ public class TankController : MonoBehaviour
     [SerializeField] public float FlameDamage = 10;
     [SerializeField] public float machineGunRange = 500;
     [SerializeField] public GameObject TankMissle;
+    [SerializeField] public GameObject MachineGunBullet;
+    [SerializeField] public GameObject FireBullet;
+    private bool canShoot = true;
     private int weaponType = 0;
+    public float firerate = .5f;
 
     void Start()
     {
@@ -26,55 +30,50 @@ public class TankController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Fire()
     {
-        switch (weaponType) 
+        if (canShoot)
         {
-            case 0:
-                RaycastHit hit;
-                Debug.DrawRay(MachineGunMuzzle.transform.position, MachineGunMuzzle.forward, Color.blue);
-				if (Physics.Raycast(MachineGunMuzzle.position, MachineGunMuzzle.forward, out hit, machineGunRange, default))
-				{
-                    Debug.Log("Machine Gun Bullet Hit");
-                    if(hit.transform.tag == "Enemy")
-                    {
-                        GameObject enemy = hit.transform.gameObject;
-                        enemy.GetComponent<EnemyAI>().TakeDamage(5);
-                    }
-                }
-				break;
-            case 1:
-                if(flamethrowerFuel > 0)
-                {
-                    flamethrowerFuel -= 1;
-				    RaycastHit hit2;
-                    Debug.DrawRay(MachineGunMuzzle.transform.position, MachineGunMuzzle.forward, Color.yellow);
-				    if (Physics.Raycast(MachineGunMuzzle.position, MachineGunMuzzle.forward, out hit2, machineGunRange))
-				    {
-                        Debug.Log("Flame hit");
-				    	if (hit2.transform.tag == "Enemy")
-				    	{
-				    		GameObject enemy = hit2.transform.gameObject;
-                            enemy.GetComponent<EnemyAI>().TakeDamage(10);
-				    		//enemy.GetComponent<EnemyAI>
-				    	}
-				    }
-                }
-				break;
-            case 2:
-                if(missles > 0)
-                {
-                    missles -= 1;
-                    Debug.Log("Missle Shot");
-                    Instantiate(TankMissle, TankMuzzle.transform);
-                }
+            switch (weaponType)
+            {
+                case 0:
+                    Debug.Log("machine gun shot");
+                    Instantiate(MachineGunBullet, TankMuzzle.transform);
+                    canShoot = false;
+                    StartCoroutine("ResetCanShoot", firerate);
                     break;
-            default:
-                break;
+                case 1:
+                    if (flamethrowerFuel > 0)
+                    {
+                        flamethrowerFuel -= 1;
+                        Debug.Log("flame shot");
+                        Instantiate(FireBullet, TankMuzzle.transform);
+                        canShoot = false;
+                        StartCoroutine("ResetCanShoot", firerate);
+                    }
+                    break;
+                case 2:
+                    if (missles > 0)
+                    {
+                        missles -= 1;
+                        Debug.Log("Missle Shot");
+                        Instantiate(TankMissle, TankMuzzle.transform);
+                        canShoot = false;
+                        StartCoroutine("ResetCanShoot", firerate);
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
+    }
+
+    public void ResetCanShoot()
+    {
+        canShoot = true;
     }
 
     public void SwitchToWeaponMachineGun()

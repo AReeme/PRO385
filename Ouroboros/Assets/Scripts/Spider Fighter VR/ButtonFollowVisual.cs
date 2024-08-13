@@ -14,10 +14,12 @@ public class ButtonFollowVisual : MonoBehaviour
 	public Vector3 rotationSpeed = new Vector3(0, 50, 0);
 	public float followAngleThreshold = 45;
     [SerializeField] GameObject tank;
+    private TankController tankController;
     public bool moveFWD;
     public bool moveBWD;
     public bool rotateRight;
     public bool rotateLeft;
+    public bool fire;
 
 
     private bool freeze = false;
@@ -34,6 +36,7 @@ public class ButtonFollowVisual : MonoBehaviour
         interactable.hoverEntered.AddListener(Follow);
         interactable.hoverExited.AddListener(ResetButton);
         interactable.selectEntered.AddListener(Freeze);
+        tankController = tank.GetComponent<TankController>();
     }
 
     public void Follow(BaseInteractionEventArgs hover)
@@ -100,6 +103,10 @@ public class ButtonFollowVisual : MonoBehaviour
 			{
 				tank.transform.Rotate((rotationSpeed * -1) * Time.deltaTime);
 			}
+            else if(fire == true)
+            {
+                tankController.Fire();
+            }
 		}
         else
         {
