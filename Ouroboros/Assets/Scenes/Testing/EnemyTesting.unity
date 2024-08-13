@@ -528,7 +528,7 @@ PrefabInstance:
       objectReference: {fileID: 406148348}
     - target: {fileID: 6758275681307887307, guid: b9e6a59c81cf3bf46b3841e9857aeefa, type: 3}
       propertyPath: range
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6758275681307887307, guid: b9e6a59c81cf3bf46b3841e9857aeefa, type: 3}
       propertyPath: wallLayer.m_Bits
