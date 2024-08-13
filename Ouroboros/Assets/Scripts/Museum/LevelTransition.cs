@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelTransition : MonoBehaviour
 {
 	[SerializeField] TransitionManager manager;
-
+	public int sceneNumber;
 	private void OnTriggerEnter(Collider other)
 	{
         if (other.gameObject.tag == "Player")
         {
-			manager.GoToScene(1);
+			manager.GoToScene(sceneNumber);
         }
 	}
 }
