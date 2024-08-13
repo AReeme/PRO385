@@ -18,6 +18,7 @@ public class TankController : MonoBehaviour
     [SerializeField] public GameObject TankMissle;
     [SerializeField] public GameObject MachineGunBullet;
     [SerializeField] public GameObject FireBullet;
+    [SerializeField] public GameObject Shield;
     private bool canShoot = true;
     private int weaponType = 0;
     public float firerate = .5f;
@@ -91,9 +92,9 @@ public class TankController : MonoBehaviour
 		weaponType = 2;
 	}
 
-    public void Shield()
+    public void SpawnShield()
     {
-        //funny code goes brrrr
+        Instantiate(Shield, gameObject.transform);
     }
 
     public void GetFuelAmmo()
