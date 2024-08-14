@@ -96,19 +96,39 @@ public class EnemyAI : MonoBehaviour
 
     void OnColliderEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //player.health -= damage
-            Destroy(gameObject);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            enemySpawningAI.setHealth(damage);
+            Destroy(gameObject);
+        }
+
         if (other.gameObject.CompareTag("Shield"))
         {
             enemySpawningAI.UpdateScore();
             Destroy(this.gameObject);
+        }
+
+        if(other.gameObject.CompareTag("Bullet"))
+        {
+            if(other.gameObject.GetComponent<Bullet>().isMissle == false)
+            {
+                TakeDamage(other.gameObject.GetComponent<Bullet>().bulletDamage);
+            }
+            else
+            {
+				Collider[] hitcolliders = Physics.OverlapSphere(gameObject.transform.position, 30, default);
+				foreach (var hitcollider in hitcolliders)
+				{
+					if (hitcollider.gameObject.tag == "Enemy")
+					{
+						hitcollider.gameObject.GetComponent<EnemyAI>().TakeDamage(100);
+					}
+				}
+			}
         }
 
         //enemySpawningAI.TotalSpidersSpawned -=1;
@@ -133,7 +153,7 @@ public class EnemyAI : MonoBehaviour
         this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if(health <= 0)

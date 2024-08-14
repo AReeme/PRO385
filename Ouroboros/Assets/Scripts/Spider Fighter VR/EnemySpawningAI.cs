@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemySpawningAI : MonoBehaviour, IGameComponent
 {
-
     private void OnEnable()
     {
         GameManagerVRBase.OnGameEnd += HandleGameEnd;
@@ -50,6 +49,7 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
     Vector3 originPoint;
     Vector3 randomPosition;
 
+    public float health { get; set; }
     public int TotalSpidersSpawned { get; set; }
     public int Score { get; set; }
     public int Difficulty { get; set; }
@@ -62,6 +62,7 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
         TotalSpidersSpawned = 0;
         Score = 0;
         Difficulty = 1;
+        health = 100;
         gameManager = GetComponent<GameManagerVRBase>();
     }
 
@@ -82,6 +83,11 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
     {
         running = false;
         StopAllCoroutines();
+    }
+
+    public void setHealth(float damage)
+    {
+        health -= damage;
     }
 
     void SpawnSpider()

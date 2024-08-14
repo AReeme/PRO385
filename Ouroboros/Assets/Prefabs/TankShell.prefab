@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4738736816320382441}
-  - component: {fileID: -8038496074682412439}
+  - component: {fileID: 1680115748694869841}
   m_Layer: 0
   m_Name: TankShell
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 6809746767523622959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8038496074682412439
+--- !u!114 &1680115748694869841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,11 +42,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2737778649597086666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52e28416f9baa044938e0f1f333fa2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 30ca35fc3d4dc2340a3bda2bd82052e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDamage: 5
   speed: 20
   lifetime: 5
+  isMissle: 1
 --- !u!1 &4449199241121143216
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +63,7 @@ GameObject:
   - component: {fileID: 7795775724305302129}
   m_Layer: 0
   m_Name: APCBC_shell.002_APCBC_shell.002
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -41,6 +41,7 @@ public class SpiderFighterVRManager : GameManagerVRBase
         {
             EnemyCount = enemySpawner.TotalSpidersSpawned;
             PlayerScore = enemySpawner.Score;
+            PlayerHealth = enemySpawner.health;
         }
 
         if (PlayerScore >= 500)
