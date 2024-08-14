@@ -43,6 +43,16 @@ public class SpiderFighterVRManager : GameManagerVRBase
             PlayerScore = enemySpawner.Score;
         }
 
+        if (PlayerScore >= 500)
+        {
+            EndGame();
+        }
+
+        if (PlayerHealth <= 0)
+        {
+            GameOver();
+        }
+
     }
 
     public override void PauseGame()
@@ -66,6 +76,15 @@ public class SpiderFighterVRManager : GameManagerVRBase
     public override void EndGame()
     {
         base.EndGame();
+        if (enemySpawner != null)
+        {
+            enemySpawner.StopSpawning();
+        }
+    }
+
+    public override void GameOver()
+    {
+        base.GameOver();
         if (enemySpawner != null)
         {
             enemySpawner.StopSpawning();

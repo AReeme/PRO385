@@ -5,4 +5,5 @@ public interface IGameComponent
     void Pause();
     void Resume();
     void End();
+    void GameOver();
 }

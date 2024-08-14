@@ -11,6 +11,28 @@ public class EnemyAI : MonoBehaviour
     bool running;
     Vector3 lookAt;
 
+    private void OnEnable()
+    {
+        GameManagerVRBase.OnGameEnd += HandleGameEnd;
+        GameManagerVRBase.OnGameOver += HandleGameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameManagerVRBase.OnGameEnd -= HandleGameEnd;
+        GameManagerVRBase.OnGameOver -= HandleGameOver;
+    }
+
+    private void HandleGameEnd()
+    {
+        Destroy(this.gameObject);
+    }
+
+    private void HandleGameOver()
+    {
+        Destroy(this.gameObject);
+    }
+
     // Stats
     float speed;
     float health;
