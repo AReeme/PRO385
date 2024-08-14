@@ -17,12 +17,13 @@ public class Bullet : MonoBehaviour
 	{
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
-	void OnColliderEnter(Collider other)
-    {
-		if(other.tag == "Enemy")
+
+	public void OnCollisionEnter(Collision collision)
+	{
+		Debug.Log(collision.gameObject.tag);
+		if(collision.gameObject.tag == "Enemy")
 		{
-		  Destroy(this.gameObject);
+			Destroy(collision.gameObject);
 		}
-        //player.health -= bulletDamage
-    }
+	}
 }

@@ -20,6 +20,7 @@ public class TankController : MonoBehaviour
     [SerializeField] public GameObject FireBullet;
     [SerializeField] public GameObject Shield;
     private bool canShoot = true;
+    private bool canShield = true;
     private int weaponType = 0;
     public float firerate = .5f;
 
@@ -77,7 +78,12 @@ public class TankController : MonoBehaviour
         canShoot = true;
     }
 
-    public void SwitchToWeaponMachineGun()
+	public void ResetCanShield()
+	{
+		canShield = true;
+	}
+
+	public void SwitchToWeaponMachineGun()
     {
         weaponType = 0;
     }
@@ -94,7 +100,13 @@ public class TankController : MonoBehaviour
 
     public void SpawnShield()
     {
-        Instantiate(Shield, gameObject.transform);
+        if(canShield && battery > 0)
+        {
+            Instantiate(Shield, gameObject.transform);
+            canShield = false;
+            battery -= 1;
+            StartCoroutine("ResetCanShield", 5f);
+        }
     }
 
     public void GetFuelAmmo()

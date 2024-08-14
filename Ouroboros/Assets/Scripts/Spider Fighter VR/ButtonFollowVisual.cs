@@ -20,6 +20,7 @@ public class ButtonFollowVisual : MonoBehaviour
     public bool rotateRight;
     public bool rotateLeft;
     public bool fire;
+    public bool shield;
 
 
     private bool freeze = false;
@@ -107,6 +108,10 @@ public class ButtonFollowVisual : MonoBehaviour
             {
                 tankController.Fire();
             }
+			else if (shield == true)
+			{
+				tankController.SpawnShield();
+			}
 		}
         else
         {
