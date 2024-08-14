@@ -34,6 +34,7 @@ public class UFOSpawningAI : MonoBehaviour
     // Prefabs
     [SerializeField] GameObject UFO;
     [SerializeField] GameObject[] spawnPoints;
+    [SerializeField] RobotsAttackVRManager manager;
 
     public enemyTypes type;
 
@@ -49,9 +50,11 @@ public class UFOSpawningAI : MonoBehaviour
     public int Score { get; set; }
     public int Difficulty { get; set; }
     private int currentEnemies;
+    public bool DiffChanged = false;
 
     void Start()
     {
+        manager = FindAnyObjectByType<RobotsAttackVRManager>();
         running = false;
         TotalSpidersSpawned = 0;
         Score = 0;
@@ -66,6 +69,7 @@ public class UFOSpawningAI : MonoBehaviour
         {
             StartCoroutine(SpawnCoroutine());
         }
+        CheckEnemyCount();
     }
 
     public void StartSpawning()
@@ -103,7 +107,18 @@ public class UFOSpawningAI : MonoBehaviour
             Instantiate(UFO, randomPosition, Quaternion.identity);
 
             TotalSpidersSpawned++;
+
             currentEnemies++;
+            DiffChanged = false;
+        }
+    }
+
+    public void CheckEnemyCount()
+    {
+        if (currentEnemies == 0 && DiffChanged)
+        {
+            manager.Difficulty += 1;
+            DiffChanged = true;
         }
     }
 
@@ -141,7 +156,7 @@ public class UFOSpawningAI : MonoBehaviour
         StopSpawning();
     }
 
-    public void UpdateScore(int score = 10)
+    public void UpdateScore(int score = 50)
     {
         Score += score;
     }

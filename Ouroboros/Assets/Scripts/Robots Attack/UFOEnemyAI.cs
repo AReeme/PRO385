@@ -103,26 +103,27 @@ public class UFOEnemyAI : MonoBehaviour
         damage = 10;
     }
 
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //player.health -= damage;
-            enemySpawningAI.Score += 10;
-            Destroy(this.gameObject);
-        }
-        else if (other.gameObject.CompareTag("Wall"))
-        {
-            Vector3 bounceDirection = Vector3.Reflect(transform.forward, other.contacts[0].normal);
-            rb.velocity = bounceDirection * bounceForce;
-        }
-        else if(other.gameObject.CompareTag("Bullet"))
-        {
-            TakeDamage(other.gameObject.GetComponent<Bullet>().bulletDamage);
-        }
-    }
+	public void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("Player"))
+		{
+			//player.health -= damage;
+			enemySpawningAI.Score += 10;
+			Destroy(this.gameObject);
+		}
+		else if (other.gameObject.CompareTag("Wall"))
+		{
+			//Vector3 bounceDirection = Vector3.Reflect(transform.forward, other.contacts[0].normal);
+			//rb.velocity = bounceDirection * bounceForce;
+		}
+		else if (other.gameObject.CompareTag("Bullet"))
+		{
+			TakeDamage(other.gameObject.GetComponent<Bullet>().bulletDamage);
+			Destroy(other.gameObject);
+		}
+	}
 
-    IEnumerator SpawnCoroutine()
+	IEnumerator SpawnCoroutine()
     {
         running = false;
         yield return new WaitForSeconds(10f);
@@ -159,6 +160,7 @@ public class UFOEnemyAI : MonoBehaviour
 		if (health <= 0)
 		{
 			enemySpawningAI.UpdateScore();
+            enemySpawningAI.EnemyDestroyed();
 			Destroy(gameObject);
 		}
 	}
