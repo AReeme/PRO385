@@ -71,6 +71,7 @@ public class GameManagerVRBase : MonoBehaviour
         foreach (var component in gameComponents)
         {
             component.End();
+
         }
     }
 

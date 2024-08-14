@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4738736816320382441}
   - component: {fileID: 1680115748694869841}
+  - component: {fileID: 2383678999466687611}
   m_Layer: 0
   m_Name: TankShell
   m_TagString: Bullet
@@ -25,14 +26,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2737778649597086666}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6809746767523622959}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1680115748694869841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,6 +50,29 @@ MonoBehaviour:
   speed: 20
   lifetime: 5
   isMissle: 1
+--- !u!136 &2383678999466687611
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737778649597086666}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.67
+  m_Height: 2.3073428
+  m_Direction: 1
+  m_Center: {x: -0.00000027242876, y: 1.11, z: 0}
 --- !u!1 &4449199241121143216
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +84,6 @@ GameObject:
   - component: {fileID: 6809746767523622959}
   - component: {fileID: 5238799883899625219}
   - component: {fileID: 2864896786378422765}
-  - component: {fileID: 7795775724305302129}
   m_Layer: 0
   m_Name: APCBC_shell.002_APCBC_shell.002
   m_TagString: Bullet
@@ -76,13 +99,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4449199241121143216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4738736816320382441}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &5238799883899625219
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -133,26 +156,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7795775724305302129
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4449199241121143216}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.67
-  m_Height: 2.3073428
-  m_Direction: 1
-  m_Center: {x: -0.00000027242876, y: 1.11, z: 0}

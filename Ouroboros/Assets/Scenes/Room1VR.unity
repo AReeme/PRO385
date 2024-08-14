@@ -263,6 +263,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 366505392}
+    - target: {fileID: 4076388267245692585, guid: 273c744a51808ae488111aa6ab5c043b, type: 3}
+      propertyPath: sceneNumber
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5149737490918808890, guid: 273c744a51808ae488111aa6ab5c043b, type: 3}
       propertyPath: m_Name
       value: LevelTransition (1)
@@ -2128,7 +2132,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.648182e-10, y: 7.503719e+28, z: 7.5030026e+28, w: 1.530572e+31}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: NaN, z: 2.176e-42, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

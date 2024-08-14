@@ -174,7 +174,7 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
         StopSpawning();
     }
 
-    public void UpdateScore(int score = 10)
+    public void UpdateScore(int score = 100)
     {
         Score += score;
     }

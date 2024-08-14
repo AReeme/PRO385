@@ -158,7 +158,8 @@ public class EnemyAI : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            Destroy(gameObject);
+			enemySpawningAI.UpdateScore();
+			Destroy(gameObject);
         }
     }
 }

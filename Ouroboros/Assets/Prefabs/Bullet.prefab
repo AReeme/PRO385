@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2598559101510113234}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.2214, y: 1, z: 1}
+  m_LocalScale: {x: 0.34526798, y: 0.34526798, z: 0.34526798}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6740569347276708695}
@@ -102,7 +102,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -120,8 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ca35fc3d4dc2340a3bda2bd82052e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDamage: 100
   speed: 20
   lifetime: 5
+  isMissle: 0
 --- !u!1 &6052315333043422860
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +152,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02836511, y: 0.02836511, z: 0.02836511}
+  m_LocalScale: {x: 0.005445072, y: 0.005445072, z: 0.005445072}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7162199069764251919}
@@ -4980,7 +4982,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.7158, y: 6.7158, z: 6.7158}
+  m_LocalScale: {x: 1.8836977, y: 1.8836977, z: 1.8836977}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7162199069764251919}

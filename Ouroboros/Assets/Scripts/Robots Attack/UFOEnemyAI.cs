@@ -116,13 +116,17 @@ public class UFOEnemyAI : MonoBehaviour
             Vector3 bounceDirection = Vector3.Reflect(transform.forward, other.contacts[0].normal);
             rb.velocity = bounceDirection * bounceForce;
         }
+        else if(other.gameObject.CompareTag("Bullet"))
+        {
+            TakeDamage(other.gameObject.GetComponent<Bullet>().bulletDamage);
+        }
     }
 
     IEnumerator SpawnCoroutine()
     {
         running = false;
         yield return new WaitForSeconds(10f);
-        //SpawnBullet();
+        SpawnBullet();
         running = true;
     }
 
@@ -148,4 +152,14 @@ public class UFOEnemyAI : MonoBehaviour
         hoverPosition.y += Mathf.Sin(Time.time * hoverSpeed) * hoverHeight;
         transform.position = hoverPosition;
     }
+
+	public void TakeDamage(float damage)
+	{
+		health -= damage;
+		if (health <= 0)
+		{
+			enemySpawningAI.UpdateScore();
+			Destroy(gameObject);
+		}
+	}
 }

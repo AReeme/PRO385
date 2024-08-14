@@ -7,8 +7,19 @@ using UnityEngine.SceneManagement;
 public class TransitionManager : MonoBehaviour
 {
     public FadeScreen fadeScreen;
+	public void OnEnable()
+	{
+		GameManagerVRBase.OnGameEnd += HandleGameEnd;
+		GameManagerVRBase.OnGameOver += HandleGameOver;
+	}
 
-    public void GoToScene(int sceneIndex)
+	public void OnDisable()
+	{
+		GameManagerVRBase.OnGameEnd -= HandleGameEnd;
+		GameManagerVRBase.OnGameOver -= HandleGameOver;
+	}
+
+	public void GoToScene(int sceneIndex)
     {
         StartCoroutine(SceneRoutine(sceneIndex));
     }
@@ -20,5 +31,15 @@ public class TransitionManager : MonoBehaviour
 
         //launch the scene
         SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void HandleGameEnd()
+    {
+        GoToScene(0);
+    }
+
+    public void HandleGameOver()
+    {
+        GoToScene(0);
     }
 }

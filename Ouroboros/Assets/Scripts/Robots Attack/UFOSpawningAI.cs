@@ -66,9 +66,6 @@ public class UFOSpawningAI : MonoBehaviour
         {
             StartCoroutine(SpawnCoroutine());
         }
-
-        Score += 1;
-
     }
 
     public void StartSpawning()
