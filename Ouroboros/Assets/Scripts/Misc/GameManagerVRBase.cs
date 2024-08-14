@@ -9,6 +9,7 @@ public class GameManagerVRBase : MonoBehaviour
     public static event GameStateChangeHandler OnGamePause;
     public static event GameStateChangeHandler OnGameResume;
     public static event GameStateChangeHandler OnGameEnd;
+    public static event GameStateChangeHandler OnGameOver;
 
     // List of game components to manage
     protected List<IGameComponent> gameComponents = new List<IGameComponent>();
@@ -70,6 +71,16 @@ public class GameManagerVRBase : MonoBehaviour
         foreach (var component in gameComponents)
         {
             component.End();
+        }
+    }
+
+    public virtual void GameOver()
+    {
+        // Trigger game pause event
+        OnGameOver?.Invoke();
+        foreach (var component in gameComponents)
+        {
+            component.GameOver();
         }
     }
 

@@ -4,6 +4,28 @@ using UnityEngine;
 
 public class UFOEnemyAI : MonoBehaviour
 {
+    private void OnEnable()
+    {
+        GameManagerVRBase.OnGameEnd += HandleGameEnd;
+        GameManagerVRBase.OnGameOver += HandleGameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameManagerVRBase.OnGameEnd -= HandleGameEnd;
+        GameManagerVRBase.OnGameOver -= HandleGameOver;
+    }
+
+    private void HandleGameEnd()
+    {
+        Destroy(this.gameObject);
+    }
+
+    private void HandleGameOver()
+    {
+        Destroy(this.gameObject);
+    }
+
     UFOSpawningAI enemySpawningAI;
     public GameObject UFOFront;
     GameObject player;
@@ -86,6 +108,7 @@ public class UFOEnemyAI : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //player.health -= damage;
+            enemySpawningAI.Score += 10;
             Destroy(this.gameObject);
         }
         else if (other.gameObject.CompareTag("Wall"))

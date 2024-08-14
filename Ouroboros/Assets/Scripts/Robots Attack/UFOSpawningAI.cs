@@ -4,6 +4,28 @@ using UnityEngine;
 
 public class UFOSpawningAI : MonoBehaviour
 {
+
+    private void OnEnable()
+    {
+        GameManagerVRBase.OnGameEnd += HandleGameEnd;
+        GameManagerVRBase.OnGameOver += HandleGameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameManagerVRBase.OnGameEnd -= HandleGameEnd;
+        GameManagerVRBase.OnGameOver -= HandleGameOver;
+    }
+
+    private void HandleGameEnd()
+    {
+        StopAllCoroutines();
+    }
+    private void HandleGameOver()
+    {
+        StopAllCoroutines();
+    }
+
     public enum enemyTypes
     {
         UFO
@@ -44,6 +66,9 @@ public class UFOSpawningAI : MonoBehaviour
         {
             StartCoroutine(SpawnCoroutine());
         }
+
+        Score += 1;
+
     }
 
     public void StartSpawning()

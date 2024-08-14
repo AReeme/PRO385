@@ -4,6 +4,29 @@ using UnityEngine;
 
 public class EnemySpawningAI : MonoBehaviour, IGameComponent
 {
+
+    private void OnEnable()
+    {
+        GameManagerVRBase.OnGameEnd += HandleGameEnd;
+        GameManagerVRBase.OnGameOver += HandleGameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameManagerVRBase.OnGameEnd -= HandleGameEnd;
+        GameManagerVRBase.OnGameOver -= HandleGameOver;
+    }
+
+    private void HandleGameEnd()
+    {
+        StopSpawning();
+    }
+
+    private void HandleGameOver()
+    {
+        StopSpawning();
+    }
+
     public enum enemyTypes
     {
         Basic,
@@ -31,12 +54,15 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
     public int Score { get; set; }
     public int Difficulty { get; set; }
 
+    public GameManagerVRBase gameManager;
+
     void Start()
     {
         running = false;
         TotalSpidersSpawned = 0;
         Score = 0;
         Difficulty = 1;
+        gameManager = GetComponent<GameManagerVRBase>();
     }
 
     void Update()
@@ -145,5 +171,10 @@ public class EnemySpawningAI : MonoBehaviour, IGameComponent
     public void UpdateScore(int score = 10)
     {
         Score += score;
+    }
+
+    public void GameOver()
+    {
+        StopSpawning();
     }
 }
