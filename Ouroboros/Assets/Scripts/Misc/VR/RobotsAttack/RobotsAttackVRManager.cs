@@ -43,6 +43,16 @@ public class RobotsAttackVRManager : GameManagerVRBase
             PlayerScore = enemySpawner.Score;
         }
 
+        if (PlayerScore >= 500)
+        {
+            EndGame();
+        }
+
+        if (PlayerHealth <= 0)
+        {
+            GameOver();
+        }
+
     }
 
     public override void PauseGame()
@@ -64,6 +74,15 @@ public class RobotsAttackVRManager : GameManagerVRBase
     }
 
     public override void EndGame()
+    {
+        base.EndGame();
+        if (enemySpawner != null)
+        {
+            enemySpawner.StopSpawning();
+        }
+    }
+
+    public override void GameOver()
     {
         base.EndGame();
         if (enemySpawner != null)
