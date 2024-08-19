@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UFOFront: {fileID: 5666946133388425199}
+  explosion: {fileID: 8945710356868823875, guid: 7df35e1d15848344aa6a080173321757, type: 3}
   bulletPrefab: {fileID: 3493706700256200990, guid: e33aebdefd33b8044a0871b13534b66f, type: 3}
   bounceForce: 5
 --- !u!54 &9054472903296526789
