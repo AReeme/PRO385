@@ -20,7 +20,10 @@ public class ButtonFollowVisual : MonoBehaviour
     public bool rotateRight;
     public bool rotateLeft;
     public bool fire;
-    public bool shield;
+    public bool Shield;
+    public bool Switch1;
+    public bool Switch2;
+    public bool Switch3;
 
 
     private bool freeze = false;
@@ -108,9 +111,21 @@ public class ButtonFollowVisual : MonoBehaviour
             {
                 tankController.Fire();
             }
-			else if (shield == true)
+			else if (Shield == true)
 			{
 				tankController.SpawnShield();
+			}
+			else if (Switch1 == true)
+			{
+				tankController.SwitchToWeaponMachineGun();
+			}
+			else if (Switch2 == true)
+			{
+				tankController.SwitchToWeaponFlameThrower();
+			}
+			else if (Switch3 == true)
+			{
+				tankController.SwitchToWeaponTankMissle();
 			}
 		}
         else
