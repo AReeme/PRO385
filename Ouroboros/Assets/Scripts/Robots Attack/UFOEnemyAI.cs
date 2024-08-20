@@ -31,6 +31,7 @@ public class UFOEnemyAI : MonoBehaviour
     GameObject player;
     public GameObject explosion;
     public GameObject bulletPrefab;
+    public GameObject deathSound;
     bool running;
     Vector3 lookAt;
 
@@ -163,6 +164,7 @@ public class UFOEnemyAI : MonoBehaviour
 			enemySpawningAI.UpdateScore();
             enemySpawningAI.EnemyDestroyed();
             Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(deathSound, transform.position, transform.rotation);
             Destroy(gameObject);
 		}
 	}
