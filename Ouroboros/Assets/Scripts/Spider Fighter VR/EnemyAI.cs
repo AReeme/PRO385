@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     EnemySpawningAI enemySpawningAI;
     GameObject player;
     GameObject bulletPrefab;
+    public GameObject DeathSound;
     bool running;
     Vector3 lookAt;
 
@@ -159,6 +160,7 @@ public class EnemyAI : MonoBehaviour
         if(health <= 0)
         {
 			enemySpawningAI.UpdateScore();
+            Instantiate(DeathSound);
 			Destroy(gameObject);
         }
     }
