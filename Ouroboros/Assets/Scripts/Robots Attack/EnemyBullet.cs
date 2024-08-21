@@ -28,4 +28,14 @@ public class EnemyBullet : MonoBehaviour
 		//player.health -= bulletDamage
 		// Destroy(this.gameObject);
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+		if (other.CompareTag("Player"))
+		{
+			other.GetComponent<RobotsAttackPlayerController>().GameManager.TakeDamage();
+			Destroy(this.gameObject);
+		}
+	}
 }
