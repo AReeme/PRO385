@@ -9,6 +9,9 @@ TagManager:
   - Shield
   - Anchor
   - Bullet
+  - Missle
+  - Flame
+  - Battery
   layers:
   - Default
   - TransparentFX

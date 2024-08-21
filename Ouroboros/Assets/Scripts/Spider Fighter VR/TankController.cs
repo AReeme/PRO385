@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
@@ -18,7 +19,11 @@ public class TankController : MonoBehaviour
     [SerializeField] public GameObject TankMissle;
     [SerializeField] public GameObject MachineGunBullet;
     [SerializeField] public GameObject FireBullet;
-    [SerializeField] public GameObject Shield;
+    [SerializeField] public GameObject shieldBullet;
+    [SerializeField] public TextMeshProUGUI HP;
+    [SerializeField] public TextMeshProUGUI flameAmmoCount;
+    [SerializeField] public TextMeshProUGUI missleAmmoCount;
+    [SerializeField] public TextMeshProUGUI batteryCount;
     private bool canShoot = true;
     private bool canShield = true;
     private int weaponType = 0;
@@ -26,13 +31,16 @@ public class TankController : MonoBehaviour
 
     void Start()
     {
-        
+        HP.text = health.ToString();
+        flameAmmoCount.text = flamethrowerFuel.ToString();
+        missleAmmoCount.text = missles.ToString();
+        batteryCount.text = battery.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        HP.text = health.ToString();
     }
 
     public void Fire()
@@ -43,7 +51,7 @@ public class TankController : MonoBehaviour
             {
                 case 0:
                     Debug.Log("machine gun shot");
-                    Instantiate(MachineGunBullet, TankMuzzle.transform);
+                    Instantiate(MachineGunBullet, TankMuzzle.position, TankMuzzle.rotation);
                     canShoot = false;
                     StartCoroutine("ResetCanShoot", firerate);
                     break;
@@ -51,8 +59,9 @@ public class TankController : MonoBehaviour
                     if (flamethrowerFuel > 0)
                     {
                         flamethrowerFuel -= 1;
+                        flameAmmoCount.text = flamethrowerFuel.ToString();
                         Debug.Log("flame shot");
-                        Instantiate(FireBullet, TankMuzzle.transform);
+                        Instantiate(FireBullet, TankMuzzle.position, TankMuzzle.rotation);
                         canShoot = false;
                         StartCoroutine("ResetCanShoot", firerate);
                     }
@@ -61,8 +70,9 @@ public class TankController : MonoBehaviour
                     if (missles > 0)
                     {
                         missles -= 1;
+                        missleAmmoCount.text = missles.ToString();
                         Debug.Log("Missle Shot");
-                        Instantiate(TankMissle, TankMuzzle.transform);
+                        Instantiate(TankMissle, TankMuzzle.position, TankMuzzle.rotation);
                         canShoot = false;
                         StartCoroutine("ResetCanShoot", firerate);
                     }
@@ -78,8 +88,9 @@ public class TankController : MonoBehaviour
         canShoot = true;
     }
 
-	public void ResetCanShield()
+	IEnumerator ResetCanShield()
 	{
+		yield return new WaitForSeconds(5f);
 		canShield = true;
 	}
 
@@ -102,9 +113,11 @@ public class TankController : MonoBehaviour
     {
         if(canShield && battery > 0)
         {
-            Instantiate(Shield, gameObject.transform);
+            Instantiate(shieldBullet, gameObject.transform);
             canShield = false;
             battery -= 1;
+            batteryCount.text = battery.ToString();
+            Debug.Log(battery);
             StartCoroutine("ResetCanShield", 5f);
         }
     }
@@ -116,6 +129,7 @@ public class TankController : MonoBehaviour
         {
             flamethrowerFuel = 150;
         }
+        flameAmmoCount.text = flamethrowerFuel.ToString();
 
     }
 
@@ -126,6 +140,7 @@ public class TankController : MonoBehaviour
         {
             missles = 15;
         }
+        missleAmmoCount.text = missles.ToString();
     }
 
     public void GetBattery()
@@ -135,5 +150,53 @@ public class TankController : MonoBehaviour
         {
             battery = 5;
         }
+        batteryCount.text = battery.ToString();
     }
+
+    public void UpdateHealthUI()
+    {
+        HP.text = health.ToString();
+    }
+
+	private void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.CompareTag("Flame"))
+		{
+			GetFuelAmmo();
+			Destroy(other.gameObject);
+		}
+		else if (other.gameObject.CompareTag("Missle"))
+		{
+			GetMissleAmmo();
+			Destroy(other.gameObject);
+		}
+		else if (other.gameObject.CompareTag("Battery"))
+		{
+			GetBattery();
+			Destroy(other.gameObject);
+		}
+
+		Debug.Log(other.gameObject);
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("Flame"))
+		{
+			GetFuelAmmo();
+			Destroy(other.gameObject);
+		}
+		else if (other.gameObject.CompareTag("Missle"))
+		{
+			GetMissleAmmo();
+			Destroy(other.gameObject);
+		}
+		else if (other.gameObject.CompareTag("Battery"))
+		{
+			GetBattery();
+			Destroy(other.gameObject);
+		}
+
+		Debug.Log(other.gameObject);
+	}
 }

@@ -12,6 +12,8 @@ public class SpiderFighterVRManager : GameManagerVRBase
 
     public EnemySpawningAI enemySpawner;
 
+    public TankController tankController;
+
     public void Start()
     {
         InitializeGame();
@@ -26,6 +28,8 @@ public class SpiderFighterVRManager : GameManagerVRBase
 
         // Find the EnemySpawningAI component in the scene
         enemySpawner = FindObjectOfType<EnemySpawningAI>();
+
+        tankController = FindObjectOfType<TankController>();
 
         if (enemySpawner != null)
         {
@@ -42,6 +46,7 @@ public class SpiderFighterVRManager : GameManagerVRBase
             EnemyCount = enemySpawner.TotalSpidersSpawned;
             PlayerScore = enemySpawner.Score;
             PlayerHealth = enemySpawner.health;
+            tankController.health = PlayerHealth;
         }
 
         if (PlayerScore >= 500)
