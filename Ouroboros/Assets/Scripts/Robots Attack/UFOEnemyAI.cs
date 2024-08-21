@@ -107,13 +107,7 @@ public class UFOEnemyAI : MonoBehaviour
 
 	public void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.CompareTag("Player"))
-		{
-			//player.health -= damage;
-			enemySpawningAI.Score += 10;
-			Destroy(this.gameObject);
-		}
-		else if (other.gameObject.CompareTag("Wall"))
+		if (other.gameObject.CompareTag("Wall"))
 		{
 			//Vector3 bounceDirection = Vector3.Reflect(transform.forward, other.contacts[0].normal);
 			//rb.velocity = bounceDirection * bounceForce;
