@@ -116,6 +116,11 @@ public class RobotsAttackVRManager : GameManagerVRBase
         enemySpawner.StartSpawning();
     }
 
+    public void TakeDamage(int damage = 10)
+    {
+        PlayerHealth -= 10;
+    }
+
     public void UpdateUI()
     {
         dataStorageUI.HealthUI.text = "Health: " + PlayerHealth;

@@ -22,7 +22,7 @@ public class EnemyBullet : MonoBehaviour
 
 		if (other.CompareTag("Player"))
 		{
-			other.
+			other.GetComponent<RobotsAttackPlayerControllerVR>().GameManager.GetComponent<RobotsAttackVRManager>().TakeDamage(10);
 			Destroy(this.gameObject);
 		}
 		//player.health -= bulletDamage
