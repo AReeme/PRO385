@@ -32,10 +32,6 @@ public class RobotsAttackVRManager : GameManagerVRBase
         // Find the EnemySpawningAI component in the scene
         enemySpawner = FindObjectOfType<UFOSpawningAI>();
         dataStorageUI = FindObjectOfType<DataStorageUI>();
-        dataStorageUI.HealthUI.text = "Health: " + PlayerHealth;
-        dataStorageUI.ScoreUI.text = "Score: " + PlayerScore;
-        HealthUI = GameObject.Find("HealthUI");
-        ScoreUI = GameObject.Find("ScoreUI");
 
         if (enemySpawner != null)
         {

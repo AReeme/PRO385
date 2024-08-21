@@ -164,7 +164,7 @@ public class UFOEnemyAI : MonoBehaviour
 			enemySpawningAI.UpdateScore();
             enemySpawningAI.EnemyDestroyed();
             Instantiate(explosion, transform.position, transform.rotation);
-            Instantiate(deathSound, transform.position, transform.rotation);
+            //Instantiate(deathSound, transform.position, transform.rotation);
             Destroy(this.gameObject);
 		}
 	}

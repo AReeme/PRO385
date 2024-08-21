@@ -1996,6 +1996,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3336084861522293858, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
       insertIndex: 5
       addedObject: {fileID: 1372702589}
+    - targetCorrespondingSourceObject: {fileID: 3336084861522293858, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1372702599}
   m_SourcePrefab: {fileID: 100100000, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
 --- !u!114 &1372702585 stripped
 MonoBehaviour:
@@ -2035,8 +2038,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697cdd73276013a44910965dda606e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthUI: {fileID: 108938707}
-  ScoreUI: {fileID: 1489651841}
+  HealthUI: {fileID: 108938709}
+  ScoreUI: {fileID: 1489651843}
+--- !u!136 &1372702599
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372702588}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.7485495
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8742743, z: 0}
 --- !u!1 &1489651841
 GameObject:
   m_ObjectHideFlags: 0

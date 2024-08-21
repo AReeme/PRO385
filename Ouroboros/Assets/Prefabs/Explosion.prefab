@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6339187975647059540}
   - component: {fileID: 5533346207535068982}
   - component: {fileID: 1300081701959794944}
+  - component: {fileID: -2172964851025963175}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3056381, y: 0.3056381, z: 0.3056381}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4924,3 +4925,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-2172964851025963175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945710356868823875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0bbdce1e365a74c806011094437cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 2

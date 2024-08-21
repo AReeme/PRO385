@@ -19,6 +19,12 @@ public class EnemyBullet : MonoBehaviour
 	}
 	void OnColliderEnter(Collider other)
 	{
+
+		if (other.CompareTag("Player"))
+		{
+			other.
+			Destroy(this.gameObject);
+		}
 		//player.health -= bulletDamage
 		// Destroy(this.gameObject);
 	}
