@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RobotsAttackVRManager : GameManagerVRBase
 {
     public int PlayerScore;
     public float PlayerHealth;
 
+    public GameObject HealthUI;
+    public GameObject ScoreUI;
+
     public int Difficulty;
     public int EnemyCount;
 
     public UFOSpawningAI enemySpawner;
+    public DataStorageUI dataStorageUI;
 
     public void Start()
     {
@@ -26,6 +31,11 @@ public class RobotsAttackVRManager : GameManagerVRBase
 
         // Find the EnemySpawningAI component in the scene
         enemySpawner = FindObjectOfType<UFOSpawningAI>();
+        dataStorageUI = FindObjectOfType<DataStorageUI>();
+        dataStorageUI.HealthUI.text = "Health: " + PlayerHealth;
+        dataStorageUI.ScoreUI.text = "Score: " + PlayerScore;
+        HealthUI = GameObject.Find("HealthUI");
+        ScoreUI = GameObject.Find("ScoreUI");
 
         if (enemySpawner != null)
         {
@@ -41,6 +51,7 @@ public class RobotsAttackVRManager : GameManagerVRBase
         {
             EnemyCount = enemySpawner.TotalSpidersSpawned;
             PlayerScore = enemySpawner.Score;
+            UpdateUI();
         }
 
         if (PlayerScore >= 500)
@@ -52,6 +63,8 @@ public class RobotsAttackVRManager : GameManagerVRBase
         {
             GameOver();
         }
+
+        
 
     }
 
@@ -105,5 +118,11 @@ public class RobotsAttackVRManager : GameManagerVRBase
     {
         yield return new WaitForSeconds(5f);
         enemySpawner.StartSpawning();
+    }
+
+    public void UpdateUI()
+    {
+        dataStorageUI.HealthUI.text = "Health: " + PlayerHealth;
+        dataStorageUI.ScoreUI.text = "Score: " + PlayerScore;
     }
 }

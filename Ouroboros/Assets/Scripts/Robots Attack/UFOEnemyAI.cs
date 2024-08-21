@@ -120,8 +120,8 @@ public class UFOEnemyAI : MonoBehaviour
 		}
 		else if (other.gameObject.CompareTag("Bullet"))
 		{
-			TakeDamage(other.gameObject.GetComponent<Bullet>().bulletDamage);
-			Destroy(other.gameObject);
+            Destroy(other.gameObject);
+            TakeDamage(other.gameObject.GetComponent<Bullet>().bulletDamage);
 		}
 	}
 

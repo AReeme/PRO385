@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 108938710}
   - component: {fileID: 108938709}
   m_Layer: 0
-  m_Name: Health
+  m_Name: HealthUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1918,6 +1918,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRigNew
       objectReference: {fileID: 0}
+    - target: {fileID: 3459824664147221577, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3459824664147221577, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3459824664147221577, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3459824664147221577, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5300592988345715916, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.45199
@@ -1976,7 +1992,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3689496213369328145, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 235059618}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3336084861522293858, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1372702589}
   m_SourcePrefab: {fileID: 100100000, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
 --- !u!114 &1372702585 stripped
 MonoBehaviour:
@@ -1999,6 +2018,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3689496213369328145, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
   m_PrefabInstance: {fileID: 1372702584}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1372702588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3336084861522293858, guid: 688951e57aa518c4dafe2506c0bd1a2e, type: 3}
+  m_PrefabInstance: {fileID: 1372702584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1372702589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372702588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697cdd73276013a44910965dda606e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthUI: {fileID: 108938707}
+  ScoreUI: {fileID: 1489651841}
 --- !u!1 &1489651841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,7 +2049,7 @@ GameObject:
   - component: {fileID: 1489651844}
   - component: {fileID: 1489651843}
   m_Layer: 0
-  m_Name: Score
+  m_Name: ScoreUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
