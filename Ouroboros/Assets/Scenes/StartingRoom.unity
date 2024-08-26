@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &25725752
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30.029123
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.7407413
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.3568787
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.93415076
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 138.183
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
+      propertyPath: m_Name
+      value: Ch07_nonPBR
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e73b5eaed49bafb40b68ded7128a633a, type: 3}
 --- !u!1 &37603439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,6 +1507,14 @@ PrefabInstance:
     - target: {fileID: 7580538759232858265, guid: 958e8852f0f1bb94d8beca4d20de8891, type: 3}
       propertyPath: m_Name
       value: RemyNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 7580538759232858265, guid: 958e8852f0f1bb94d8beca4d20de8891, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013644040783456647, guid: 958e8852f0f1bb94d8beca4d20de8891, type: 3}
+      propertyPath: range
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5182,6 +5247,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RemyNPC (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7580538759232858265, guid: 958e8852f0f1bb94d8beca4d20de8891, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013644040783456647, guid: 958e8852f0f1bb94d8beca4d20de8891, type: 3}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5802,6 +5875,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RemyNPC (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7580538759232858265, guid: 958e8852f0f1bb94d8beca4d20de8891, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013644040783456647, guid: 958e8852f0f1bb94d8beca4d20de8891, type: 3}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5870,6 +5951,10 @@ PrefabInstance:
     - target: {fileID: 7580538759232858265, guid: 958e8852f0f1bb94d8beca4d20de8891, type: 3}
       propertyPath: m_Name
       value: RemyNPC (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013644040783456647, guid: 958e8852f0f1bb94d8beca4d20de8891, type: 3}
+      propertyPath: range
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5956,3 +6041,4 @@ SceneRoots:
   - {fileID: 1977743608}
   - {fileID: 2106340677}
   - {fileID: 2129063416}
+  - {fileID: 25725752}

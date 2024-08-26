@@ -6,81 +6,97 @@ using UnityEngine.AI;
 
 public class NPCAI : MonoBehaviour
 {
-    NavMeshAgent agent;
-    [SerializeField] LayerMask groundLayer;
-    [SerializeField] Animator anim;
+	NavMeshAgent agent;
+	[SerializeField] LayerMask groundLayer;
+	[SerializeField] Animator anim;
 
-    // Patrol
-    Vector3 destination;
-    bool walkPointSet;
-    [SerializeField] float range;
-    bool isMovingToDestination;
-    float startTime; 
+	// Patrol
+	Vector3 destination;
+	bool walkPointSet;
+	[SerializeField] float range;
+	bool isMovingToDestination;
+	float startTime;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        agent.speed = 1.0f;
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		agent = GetComponent<NavMeshAgent>();
+		agent.speed = 1.0f;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        Patrol();
-    }
+	// Update is called once per frame
+	void Update()
+	{
+		Patrol();
+	}
 
-    void Patrol()
-    {
-        if (!walkPointSet && !isMovingToDestination)
-        {
-            StartCoroutine(WaitAndSearch());
-            SearchForDest();
-        }
+	void Patrol()
+	{
+		if (!walkPointSet && !isMovingToDestination)
+		{
+			StartCoroutine(WaitAndSearch());
+			SearchForDest();
+		}
 
-        if (walkPointSet)
-        {
-            agent.SetDestination(destination);
-            anim.SetBool("IsWalking", true);
-            startTime = Time.time;
-        }
+		if (walkPointSet)
+		{
+			agent.SetDestination(destination);
+			anim.SetBool("IsWalking", true);
+		}
 
-        if (Vector3.Distance(transform.position, destination) < 1)
-        {
-            walkPointSet = false;
-            isMovingToDestination = false;
-            Debug.Log("Reached destination");
-        }
-        else if (Time.time - startTime > 5 && !isMovingToDestination) 
-        {
-            SearchForDest(); 
-        }
-    }
+		// Check if the agent is stuck or has reached the destination
+		if (agent.velocity.sqrMagnitude < 0.01f && isMovingToDestination)
+		{
+			startTime += Time.deltaTime;
+		}
+		else
+		{
+			startTime = 0;
+		}
 
-    void SearchForDest()
-    {
-        float x;
-        float z;
+		if (startTime > 5)
+		{
+			Debug.Log("Agent stuck, searching for a new destination.");
+			walkPointSet = false;
+			isMovingToDestination = false;
+			SearchForDest();
+		}
 
-        do
-        {
-            x = Random.Range(-range, range);
-            z = Random.Range(-range, range);
-        } while ((x >= -5 && x <= 5) || (z >= -5 && z <= 5));
+		if (Vector3.Distance(transform.position, destination) < 1)
+		{
+			Debug.Log("Reached destination");
+			walkPointSet = false;
+			isMovingToDestination = false;
+		}
+	}
 
-        destination = new Vector3(transform.position.x + x + 50, transform.position.y, transform.position.z + z + 50);
+	void SearchForDest()
+	{
+		float x, z;
+		Vector3 potentialDestination;
 
-        if (Physics.Raycast(destination, Vector3.down, groundLayer))
-        {
-            walkPointSet = true;
-            isMovingToDestination = true;
-        }
-    }
+		do
+		{
+			x = Random.Range(-range, range);
+			z = Random.Range(-range, range);
+			potentialDestination = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
+		} while (!IsValidDestination(potentialDestination));
 
-    IEnumerator WaitAndSearch()
-    {
-        yield return new WaitForSeconds(10);
-        anim.SetBool("IsWalking", false);
-        SearchForDest();
-    }
+		destination = potentialDestination;
+		walkPointSet = true;
+		isMovingToDestination = true;
+	}
+
+	bool IsValidDestination(Vector3 target)
+	{
+		NavMeshHit hit;
+		return NavMesh.SamplePosition(target, out hit, 1.0f, NavMesh.AllAreas);
+	}
+
+	IEnumerator WaitAndSearch()
+	{
+		yield return new WaitForSeconds(10);
+		anim.SetBool("IsWalking", false);
+		SearchForDest();
+	}
 }
