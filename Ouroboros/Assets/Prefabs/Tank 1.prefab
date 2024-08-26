@@ -2621,8 +2621,8 @@ MonoBehaviour:
   FlameDamage: 10
   machineGunRange: 500
   TankMissle: {fileID: 2737778649597086666, guid: 21613b5b5b1402242b24f3f30633c386, type: 3}
-  MachineGunBullet: {fileID: 2737778649597086666, guid: cfd2a6e7c332410479c15ea43cab8365, type: 3}
-  FireBullet: {fileID: 2737778649597086666, guid: bca792a7f721ebe48b2fa8b0817be2e6, type: 3}
+  MachineGunBullet: {fileID: 3493706700256200990, guid: d3a14c5574a304a4a8cc756ba43d4e95, type: 3}
+  FireBullet: {fileID: 3493706700256200990, guid: c55a3d5aebaa26c4085e38f1c66eb24f, type: 3}
   shieldBullet: {fileID: 5139559409309537534, guid: 48cab3538b08c574ca6c4732d7f4de93, type: 3}
   HP: {fileID: 2435254680930767529}
   flameAmmoCount: {fileID: 6043195398560243325}
