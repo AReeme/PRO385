@@ -12,6 +12,7 @@ TagManager:
   - Missle
   - Flame
   - Battery
+  - Child
   layers:
   - Default
   - TransparentFX

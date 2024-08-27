@@ -72,7 +72,7 @@ public class TankController : MonoBehaviour
                         missles -= 1;
                         missleAmmoCount.text = missles.ToString();
                         Debug.Log("Missle Shot");
-                        Instantiate(TankMissle, TankMuzzle.position, TankMuzzle.rotation);
+                        Instantiate(TankMissle, TankMuzzle.position, TankMuzzle.rotation * Quaternion.Euler(90, 0, 0));
                         canShoot = false;
                         StartCoroutine("ResetCanShoot", firerate);
                     }

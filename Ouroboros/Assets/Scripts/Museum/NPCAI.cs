@@ -70,6 +70,15 @@ public class NPCAI : MonoBehaviour
 		}
 	}
 
+	private void OnCollisionEnter(Collision other)
+	{
+		if (this.gameObject.CompareTag("Child") && other.gameObject.CompareTag("Bullet"))
+		{
+			Destroy(other.gameObject);
+			Destroy(this.gameObject);
+		}
+	}
+
 	void SearchForDest()
 	{
 		float x, z;
@@ -99,4 +108,6 @@ public class NPCAI : MonoBehaviour
 		anim.SetBool("IsWalking", false);
 		SearchForDest();
 	}
+
+	
 }
